@@ -1,0 +1,534 @@
+---
+title: "Introducción al lenguaje R"
+date: ""
+lang: es
+output:
+  number_sections: true
+---
+
+# Presentación
+
+## 0. Objetivo de la práctica
+
+El objetivo de esta guía práctica es introducirnos a las herramientas que permiten establecer un flujo de trabajo en R.
+
+En detalle, aprenderemos:
+
+1. R y Rstudio
+
+2. Cómo establecer un flujo de trabajo mediante **scripts** y **Rprojects** siguiendo el protocolo [IPO](https://lisa-coes.com/ipo-data/)
+
+3. Cómo crear un proyecto de R (R.proyect)
+
+4. Cómo crear un script (hoja) en R
+
+5. R es una cocina
+
+## 1. R y RStudio
+
+**R es un lenguaje y ambiente de programación**, dentro del cual se pueden implementar técnicas estadísticas y de ciencia de datos. Por su parte, **RStudio es** un IDE (integrated development enviroment) para R, o en pocas palabras, es una **interfaz** más amigable que nos permite interactuar con R. 
+
+¿Y por qué aprender R? Existen **muchas razones**, pero algunas de las principales son:
+
+- Empleabilidad 
+- Crisis de reproducibilidad y Ciencia Abierta
+- Facilita manipulación, almacenaje, cálculos y visualización de datos
+- Facilita la colaboración y trabajo en equipo
+- Simple, pero potente
+- Puede integrarse con otros ambientes y herramientas
+
+
+```{r echo=FALSE, warning=FALSE, out.width="50%", fig.align='center'}
+
+knitr::include_graphics("../images/erre.gif", error = FALSE)
+```
+
+Al momento de abrir RStudio por primera vez puede que nos asustemos, pues es un entorno nuevo lleno de posibilidades en donde todavía no conocemos mucho. 
+
+**¡Pero que no cunda el pánico!** ya que estas posibilidades son nuevas oportunidades de aprendizaje en un software libre, gratuito y cada vez más utilizado en las ciencias sociales. ¿Nos vamos a equivocar? Claro que sí, y esperemos que así sea pues más aprenderemos. 
+
+```{r echo=FALSE, warning=FALSE, out.width="80%", fig.align='center'}
+
+knitr::include_graphics("../images/r_rollercoaster.png", error = FALSE)
+```
+
+
+Al ver RStudio por primera vez se nos presentará una interfaz de al menos cuatro paneles.
+
+```{r echo=FALSE, warning=FALSE, out.width="70%", fig.align='center'}
+
+knitr::include_graphics("../images/panel.png", error = FALSE)
+```
+
+
+**¡VEAMOS COMO COMENZAR A USAR R!**
+
+## 2. Flujo de trabajo en R
+
+Tal vez una de las dificultades más comunes o cotidianas del uso de R es el orden de trabajo, en donde tenemos cientos de archivos, scripts, gráficos, bases de datos u otros repartidos desordenadamente en nuestro computador. También se da mucho el caso en que, cuando queremos trabajar con alguien, tenemos que cambiar las rutas de los archivos, por ejemplo en dónde están las bases de datos, ya que nuestros ordenadores y usuarios se llaman y son escencialmente distintos. 
+
+¿Cómo podemos sortear eso? Siguiendo un flujo de trabajo reproducible, autocontenido y ordenado. **En este curso trabajaremos R con un flujo de trabajo reproducible, basado en el sistema [IPO](https://lisa-coes.com/ipo-data/)**. El protocolor IPO es una plantilla/protocolo de estructura digital de carpetas que tiene por objetivo el organizar, procesar y documentar los datos de un proyecto de investigación con miras a la apertura de los datos en un repositorio público y de acceso libre. En concreto, el sistema IPO se propone abordar brevemente todo lo referente a los Datos, Métodos y Resultados.
+
+```{r echo=FALSE, warning=FALSE, out.width="80%", fig.align='center'}
+
+knitr::include_graphics("../images/image (3).png", error = FALSE)
+```
+
+Lleva este nombre por el sistema de carpetas que se implementan: **I**nput, **P**rocesamiento y **O**utput. En la carpeta **Input** guardaremos todos aquellso recursos iniciales que usaremos, como las bases de datos, el libro de códigos, entre otros. En la carpeta de **Procesamiento**, como dice el nombre, guardaremos todos los archivos que procesen y analicen datos. En la carpeta **Output** guardaremos todo aquello que hayamos producido en los archivos de procesamiento, como las bases de datos procesadas listas para compartir o publicas, los documentos de reporte, informes o analísis, gráficos o tablas. 
+
+```{r echo=FALSE, warning=FALSE, out.width="80%", fig.align='center'}
+
+knitr::include_graphics("../images/image (2).png", error = FALSE)
+```
+
+La implementación de la reproducibilidad en este tipo de protocolos se basa en generar un conjunto de archivos auto-contenidos organizado en una estructura de proyecto que cualquier persona pueda compartir y ejecutar. En otras palabras, debe tener todo lo que necesita para ejecutar y volver a ejecutar el análisis. Para conocer más, visita el [Laboratorio de Ciencia Abierta](https://lisa-coes.com/03componentes/). 
+
+```{r echo=FALSE, warning=FALSE, out.width="80%", fig.align='center'}
+
+knitr::include_graphics("../images/image.png", error = FALSE)
+```
+
+## 3. Proyecto de R (.Rproject)
+
+¿Y cómo hacemos lo anterior? Mediante los **Rproject**. Los proyectos en R, o R Projects, serán el centro a partir del cual estaremos trabajando el resto de archivos incluidos en nuestro trabajo con los datos (Input, Procesamiento y Output). En pocas palabras, el **Rproject** será el elemento raíz de nuestro proyecto y que articula o abraza todos los demás componentes. 
+
+```{r echo=FALSE, warning=FALSE, out.width="80%", fig.align='center'}
+
+knitr::include_graphics("../images/cora1.png", error = FALSE)
+```
+
+
+¿Cómo lo hacemos? Es bastante sencillo. Nos dirigiremos a la sección superior derecha de RStudio, donde se encuentra una R dentro de un cubo:
+
+
+```{r echo=FALSE, warning=FALSE, out.width="70%", fig.align='center'}
+knitr::include_graphics("../images/rproj.png", error = FALSE)
+```
+
+Hacemos click en ella, y luego se nos desplegará una ventana con distintas opciones. Seleccionamos **New Project**. 
+
+```{r echo=FALSE, warning=FALSE, out.width="70%", fig.align='center'}
+knitr::include_graphics("../images/new.png", error = FALSE)
+```
+
+Luego, seleccionamos **New Directory > New Project** 
+
+```{r echo=FALSE, warning=FALSE, out.width="60%", fig.align='left'}
+knitr::include_graphics("../images/directort.png", error = FALSE)
+```
+
+```{r echo=FALSE, warning=FALSE, out.width="60%", fig.align='right'}
+knitr::include_graphics("../images/projee.png", error = FALSE)
+```
+
+Una vez realizado lo anterior, nos pedirá asignar un **Directory name**, que es como se llamará nuestro proyecto. Se recomienda que tenga nombres sustantivos. En este ejemplo, le llamaremos _tarea01_.
+
+```{r echo=FALSE, warning=FALSE, out.width="60%", fig.align='left'}
+knitr::include_graphics("../images/name.png", error = FALSE)
+```
+
+```{r echo=FALSE, warning=FALSE, out.width="60%", fig.align='right'}
+knitr::include_graphics("../images/brow.png", error = FALSE)
+```
+
+
+Luego debemos indicarle **dónde queremos que esté alojado en nuestro computador este proyecto**. Para ello pinchamos en el **Browse**, y se nos desplegará nuestro sistema de carpetas de nuestro computador. Supongamos que queremos guardarlo en una carpeta que llamaremos _Estadistica Descriptiva 2023_. 
+
+```{r echo=FALSE, warning=FALSE, out.width="60%", fig.align='left'}
+knitr::include_graphics("../images/carpet.png", error = FALSE)
+```
+Seleccionamos la carpeta y le damos a **Open** o **Abrir**. Una vez realizado lo anterior, volveremos a RStudio y tendremos nuestro projecto abierto. Además, podemos ver que nuestro **.Rproj** se creó en la carpeta respectiva en la esquina inferior derecha de la pantalla. 
+
+```{r echo=FALSE, warning=FALSE, out.width="60%", fig.align='right'}
+knitr::include_graphics("../images/ver.png", error = FALSE)
+```
+
+Ahora, **tenemos que darle el formato de flujo de trabajo reproducible**. Para ello, crearemos las carpetas de Input, Procesamiento y Ouput en la misma carpeta _Estadistica Descriptiva 2023_ donde tenemos alojado el **.Rproject**. 
+
+```{r echo=FALSE, warning=FALSE, out.width="60%", fig.align='left'}
+knitr::include_graphics("../images/carpeta2.png", error = FALSE)
+```
+```{r echo=FALSE, warning=FALSE, out.width="60%", fig.align='right'}
+knitr::include_graphics("../images/ipo.png", error = FALSE)
+```
+¿Y podemos ver esto mismo pero en RStudio? ¡Claro que sí!, cada carpeta que creemos se irá sumando al visualizador de **Files**, así como también si subimos archivos (como bases de datos) en las respectivas subcarpetas, irán apareciendo allí. 
+
+```{r echo=FALSE, warning=FALSE, out.width="60%", fig.align='center'}
+knitr::include_graphics("../images/projectoo.png", error = FALSE)
+```
+
+**¡HEMOS CREADO NUESTRO PROYECTO Y SISTEMA DE TRABAJO REPRODUCIBLE!**
+
+```{r echo=FALSE, warning=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("../images/the-office-dwight.gif", error = FALSE)
+```
+
+## 4. Crear un nuevo Script (.R)
+
+Para comenzar a trabajar en R, lo primero es crear un **Script**. ¿Qué es un script? En términos simples, un _script_ es la _hoja_ en donde escribiremos y guardaremos nuestro código, y en donde a la vez podremos ir ordenando nuestros pasos e incluso ir comentándolos. Cuando hablamos de **Sintaxis** estamos refiriéndonos, en escencia, a un **Script**.  
+
+Imaginen que un Script es como una _hoja_ de receta de cocina, allí anotamos todos los ingredientes, fases y procedimientos que debemos seguir e ir ejecutando. Esta receta la podemos compartir con otros, volver a verla cuando queramos hacer lo mismo o algo similar. Esa es la gracia de un **Script**.
+
+Si bien podemos escribir y ejecutar código directamente en la consola, estos se eliminarán una vez que cerremos la sesión en RStudio. 
+
+**¿Cómo crear un Script?** Hacerlo es bastante sencillo. En la sección superior izquierda de RStudio, debe hacerse click en la hoja con un signo + verde y, luego, seleccionar la opción R Script en el menú desplegado:
+
+```{r echo=FALSE, warning=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("../images/script.png", error = FALSE)
+```
+
+Otra manera de abrir un nuevo script es hacer click en la opción File de la barra superior. Posteriormente seleccionar New File > R Script en los menús desplegados:
+
+```{r echo=FALSE, warning=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("../images/file.png", error = FALSE)
+```
+
+Por último, podemos mantener presionadas las teclas Ctrl + Shift + N en Windows, o ⌘ + Shift + N en Mac.
+
+¡Hemos abierto un nuevo script¡, que se debe ver de la siguiente manera:
+
+```{r echo=FALSE, warning=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("../images/result.png", error = FALSE)
+```
+
+Podemos escribir en él los códigos, que se ejecutarán en la consola una vez mantengamos presionadas las teclas Control + Enter al inicio de la línea
+
+
+```{r echo=FALSE, warning=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("../images/print.png", error = FALSE)
+```
+
+¿Y cómo guardo mi código? Podemos hacer click en el **disquete** situado en la barra que se encuentra sobre el código, o bien, apretar Ctrl + S. 
+
+```{r echo=FALSE, warning=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("../images/save.png", error = FALSE)
+```
+
+La primera vez que guardemos un Script, nos pedirá que le asignemos un nombre y una ruta donde guardarlo. **Este nombre debe ser sustantivo (como procesamiento o análisis), y debemos alojarlo en las subcarpetas que creamos en el paso anterior**. Generalmente, guardaremos los scripts en la carpeta de **Procesamiento**. En este ejemplo, lo llamaremos _script01_: 
+
+```{r echo=FALSE, warning=FALSE, out.width="70%", fig.align='left'}
+knitr::include_graphics("../images/nombre.png", error = FALSE)
+```
+
+```{r echo=FALSE, warning=FALSE, out.width="70%", fig.align='right'}
+knitr::include_graphics("../images/nombre2.png", error = FALSE)
+```
+
+Una vez almacenado en una carpeta, cada vez que clickeemos en los casetes o mantengamos presionadas las teclas Control + S, el archivo se actualizará a la última versión que hayamos guardado
+
+## 5. R es una cocina
+
+En la sesión de hoy, comenzaremos de forma distinta, no utilizaremos los conceptos técnicos del software de lleno, sino que los iremos conociendo de a poco. Para cumplir ese objetivo, es que la idea es iniciar con un ejemplo, al que llamaremos ***"R es una cocina"***.
+
+Lo primero, entonces, es que pensemos que RStudio, nuestra interfaz que visualizamos en estos momentos, es una cocina. Es importante que usemos la imaginación, ya que evidentemente no se ve como una cocina.
+
+<br>
+
+### 5.1 Primera parte de la estructura de datos: *columnas y objetos*
+
+<br>
+
+Cuando cocinamos siempre debemos realizar un paso previo antes de todo: *preparar la cocina o el espacio de trabajo*.
+
+#### Primero, debemos precalentar la cocina
+
+```{r,warning=FALSE,message=FALSE}
+#| echo: true
+
+pacman::p_load(beepr, dplyr, tidyverse) 
+beep(1)
+```
+
+::: callout-note
+Sin este paso, no podemos empezar a trabajar en nuestra sesión, por eso es muy impotante. Al igual que cuando precalentamos un horno o esperamos a que caliente el aceite antes de colocar los ingredientes.
+:::
+
+Con la cocina precalentada, podemos avanzar al siguiente paso.
+
+#### Ahora debemos agregar los ingredientes...
+
+::: callout-important
+Deben ser la misma cantidad de elementos dentro del parentésis
+:::
+
+```{r}
+#| echo: true
+#| label: crear objetos
+
+ingrediente_1 <- c(2,3,4,5,6,7,4,3,8,1) #10 casos
+ingrediente_2 <- c(100, 200, 50, 30, 100, 91, 87, 100, 55, 61)
+ingrediente_3 <- c(10, 25,30,35,35,20,15,10,20, 25)
+ingrediente_4 <- c("pisca", 
+                   "cucharadita", 
+                   "cucharada", 
+                   "pisca", 
+                   "pisca", 
+                   "cucharadita", 
+                   "cucharadita", 
+                   "cucharada", 
+                   "cucharada", 
+                   "cucharada")
+
+```
+
+Si vamos viendo, nuestros ingredientes se van *acumulando en el cuadrante de abajo* (como valores). En ese sentido y en contexto de nuestro ejemplo, nuestra cocina va *almacenando los ingredientes que queremos utilizar para hacer un **plato***.
+
+#### Ahora bien, ya con los ingredientes listos, es momento de hacer nuestro plato. Para ello, hacemos lo siguiete:
+
+```{r}
+#| echo: true
+#| label: crear base
+plato <- data.frame(ingrediente_1, 
+                    ingrediente_2,
+                    ingrediente_3, 
+                    ingrediente_4)
+beep(1)
+```
+
+Si volvemos a mirar en el cuadrante de abajo, el plato está listo (tal como lo indica el sonido de la cocina al finalizar la acción) y se encuentra almacenado no como un valor, sino que como un **dato**. Al que llamaremos, en términos más técnicos, un ***objeto***.
+
+Así, tenemos hasta ahora, combinando el contexto de nuestro ejemplo y los tecnicismos del software:
+
+<br>
+
+> Un **plato** que corresponde a un ***objeto***
+
+> Cuatro **ingredientes** que componen el plato, que son ***valores*** que integran el objeto, dispuestos en **columnas**.
+
+<br>
+<br>
+
+### 5.2 Segunda parte de la estructura de datos: *filas y funcionamiento de una base de datos*
+
+<br>
+
+Pensemos que, de tanto que se ha encontrado el plato dentro de la cocina, llegaron las **hormigas** a buscarlo.
+
+Para seguir con la idea, debemos agregarlas de forma manual, de la siguiente manera:
+
+```{r}
+#| echo: true
+#| label: hormigas en el plato
+
+
+plato$ID <- c("hormiga_a",
+        "hormiga_b", 
+        "hormiga_c", 
+        "hormiga_d", 
+        "hormiga_e", 
+        "hormiga_f",
+        "hormiga_g", 
+        "hormiga_h", 
+        "hormiga_i", 
+        "hormiga_j")
+```
+
+Así, las hormigas se almacenaran en el valor `ID`, ya que será el identificador de cada una dentro de nuestra cocina y, específicamente, dentro de nuestro plato.
+
+Si retomamos la estrcutura de datos de nuestros ingredientes, estos se componene de 10 valores, que, en términos de nuestro ejemplo, son *partes* que componenen el ingrdiente (como `gramos` y `cucharadas`). Esto lo hicimos a propósito, para que cada valor o parte del ingrediente este asociado a cada hormiga. De ese modo, podemos ver cuánto de cada ingrediente de nuestro plato se llevo cada hormiga y, con esto, hacemos un análisis más detallado de lo que ellas se llevaron del plato.
+
+En ese sentido, ya no sólo decimos:
+
+> *"Llegaron las hormigas al plato y se llevan cosas de este"*
+
+Sino que, podemos decir cosas más específicas al respecto:
+
+> *"Dentro del plato, la `hormiga_a` se llevo una pisca del `ingrediente_4` y la `hormiga_b` se llevo 25 milígramos del `ingrediente_3`"*
+
+<br>
+<br>
+
+#### Ahora bien, ¿cómo podemos ver cuánto saco cada hormiga de un ingediente en específico?
+
+<br>
+
+¡Con estadística descriptiva!
+
+<br>
+
+Para ello, podemos usar una tabla de contingencia, con la cual cruzamos dos datos, en este caso hormigas con el `ingrediente_4`. Quedaría algo así:
+
+```{r}
+#| echo: true
+#| label: cuanto del ingrediente 1 se llevo cada hormiga
+
+summarytools::ctable(plato$ID, plato$ingrediente_4)
+
+```
+
+Aquí podemos ver que la `hormiga_a` se llevo una pisca del `ingrediente_4` de nuestro plato y, al contrario, la `horrmiga_c` se llevo una cucharada.
+
+#### Pero... ¿y si sólo queremos ver a la hormiga g?
+
+<br>
+
+¡Filtramos!
+
+<br>
+
+```{r}
+#| echo: true
+#| label: hormiga g
+
+hg <- plato %>% filter(ID == "hormiga_g")
+
+str(hg)
+```
+
+Hasta acá hemos visto la utilidad de nuestra cocina, tanto en el almacenamiento de los ingredientes, la creación de platos y en el análisis de los procesos que pueden estar ocurriendo dentro de la misma.
+
+A la información que vimos en el apartado anterior, ahora se agrega un tecnicismo más:
+
+> Las hormigas poseen un pocentaje del ingrediente, en ese sentido, toman un valor de cada ingrediente que compone el plato, lo que se encuentra en las **filas**
+
+> Nuestra cocina nos permite **calcular** cómo se distribuyen estos valores de cada ingrediente entre las hormigas
+
+Con lo anterior, ya podemos describirlo y entenderlo en el lenguaje de R y de ciencia de datos. Ahora, nos iremos a lo técnico, pero siempre retomando nuestro ejemplo de que **R es una cocina**.
+
+<br>
+<br>
+
+#### En términos concretos y hablando ya con el lenuaje de R...
+
+<br>
+
+::: columns
+::: {.column width="45%"}
+
+Antes recordemos tres conceptos básicos: **tablas**, **filas** y **columnas**.
+
+Una ***tabla** esta compuesta por filas y columnas*, y aquello entrega ***celdas o casillas***.
+
+-   Las filas son **horizontales**
+
+-   Las columnas **verticales**
+
+-   En la tabla estas se ***cruzan entre sí***, dicho cruce son las **celdas**
+
+:::
+
+::: {.column width="45%"}
+*¿Para qué nos sirve saber esto?*
+
+Para entender el **funcionamiento de una base de datos**.
+
+RStudio para hacer los análisis estadísticos, utiliza bases de datos, las cuales podemos entender, con la terminología que manejamos hasta ahora, como "tablas" con datos en su interior.
+
+:::
+:::
+
+> *Así, una celda es el dato de un caso específico para una variable específica*
+
+<br>
+
+Entonces, hasta ahora tenemos lo siguiente:
+
+| Estructura básica       | En Ciencias Sociales          | En nuestro ejemplo|
+|-------------------------|-------------------------------|-------------|
+| Fila                    | Casos                         | Hormigas    |
+| Columnas                | Variables                     | Ingredientes|
+| Matriz                  | Bases de datos o data frames  | Plato       |
+
+
+<br>
+<br>
+
+Ahora bien, lo que hicimos en la práctica con el plato, es que este se comporta como el almacenador de "algo" y le *asignamos* los ingredientes (que, en el fondo, son valores).
+
+> *En R, como es una cocina, trabajamos en función de ir creando platos (u, dicho de forma técnica, **objetos**)*
+
+::: columns
+::: {.column width="45%"}
+a)  Podemos agregar ingredientes a un mismo plato, en su proceso de preparación, en un lenguaje más técnico, esto es ***sobreescribir un objeto***
+:::
+
+::: {.column width="45%"}
+b)  Podemos ir almacendando platos distintos en nuestra cocina, en un lenguaje más técnico, esto es ***crear un objeto***
+:::
+:::
+
+```{r}
+#| echo: true
+#| label: ver
+
+view(plato)
+```
+
+<br>
+
+#### Ahora que entendemos la estructura de datos, ¿cómo se ve esto en la realidad?
+
+<br>
+
+En nuestro estudio, tendremos bases de datos provinientes de encuestas, pueden ser de opinión, censales, etc.
+
+En ese sentido, nuesta estructura de datos se verá de la siguiente manera:
+
+-   Las filas serán **personas**
+
+-   Las columnas **preguntas de un cuestionario**
+
+-   La base de datos la *combinacion de ambas*
+
+> *Así, las celdas son la respuesta específica de una persona a una pregunta específica*
+
+<br>
+
+Si lo vemos dentro de nuestra analogía:
+
+-   *La **encuesta** es nuestro **plato***
+
+-   *Las **preguntas** son los **ingredientes** que componen ese plato*
+
+Al entender que las hormigas sacan un pocentaje de los ingredientes, le entregamos un ***valor específico a cada una de ese ingrediente***.
+
+En ese sentido:
+
+> Cierto porcentaje del ingrediente le pertenece a una hormiga
+
+En los datos de una encuesta:
+
+> Cierto porcentaje del dato le pertenece a una persona, ya que aquello es su respuesta a la pregunta del cuestionario
+
+<br>
+
+### 5.3 Entonces, dentro de la investigación sociológica y estadística lo que hacemos es:
+
+<br>
+
+Utilizar nuestra ***cocina estadística*** para observar esas respuestas que tienen un valor para nosotr-s.
+
+Las respuestas de las personas nos indican **tendencias, percepciones, y condiciones objetivas en las que viven**. Esos datos son valiosos para nuestra labor, ya que podemos analizarlos para tener una noción de *cómo se distirbuyen dichas caracterísitcas en la sociedad*.
+
+Del mismo modo, podriamos ver cómo se distribuye cierto ingrediente en las homigas, o qué ingrediente prefieren más la hormigas sólo observando sus frecuencias e identificando el ingrediente más popular.
+
+<br>
+
+*¿Cuál es la utilidad de eso en lo concreto?*: Nos permite realizar **hipótesis** y **preguntas de investigación**.
+
+<br>
+
+
+| En el caso de las hormigas... | En Ciencias Sociales... |
+|-------------------------------|--------------------------|
+| Podríamos hipotetizar, por ejemplo, que el ingrediente 1 es más dañino, y esa razón podría ser una posible explicación a su baja frecuencia. Otra hipótesis podría ser que ese ingrediente es más difícil de conseguir del plato. | Algo similar se ve cuando evaluamos los ingresos a nivel de hogar. Con análisis descriptivos ya podemos ver brechas, desigualdades y aproximaciones a la distribución, según los estadísticos que calculemos. |
+
+<br>
+
+Con esto en mente, ¡ya podemos andentrarnos a un lenguaje más técnico y los conocimientos básicos de programación para utilizar RStudio!
+
+
+## Resumen
+
+Hoy aprendimos a procesar datos en R. En detalle, vimos:
+
+1.R y RStudio
+
+2. Cómo establecer un flujo de trabajo mediante **scripts** y **Rprojects** siguiendo el protocolo [IPO](https://lisa-coes.com/ipo-data/)
+
+3. Cómo crear un proyecto de R (R.proyect)
+
+4. Cómo crear un script (hoja) en R
+
+5. R es una cocina
+

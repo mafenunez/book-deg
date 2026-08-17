@@ -1,0 +1,21 @@
+{
+  "hash": "ea25206bc220b2c1e32d1a2569603446",
+  "result": {
+    "engine": "knitr",
+    "markdown": "# Sección 2\n\n\n\n\n\n\n\nEscribe aquí el contenido de la Sección 2.\n\n## Ejemplo de figura con el estilo del libro\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(ggplot2)\n\ndatos <- data.frame(\n  mes = factor(month.abb[1:6], levels = month.abb[1:6]),\n  serie = rep(c(\"Serie A\", \"Serie B\"), each = 6),\n  valor = c(12, 19, 14, 22, 18, 25, 8, 11, 13, 9, 15, 17)\n)\n\nggplot(datos, aes(x = mes, y = valor, color = serie, group = serie)) +\n  geom_line(linewidth = 1) +\n  geom_point(size = 2) +\n  scale_color_manual(values = c(color_primario, color_secundario)) +\n  labs(\n    title = \"Título del gráfico\",\n    subtitle = \"Subtítulo o contexto adicional\",\n    x = NULL, y = \"Valor\"\n  ) +\n  tema_libro()\n```\n\n::: {.cell-output-display}\n![Comparación de series usando la paleta del libro](02-seccion2_files/figure-pdf/fig-ejemplo-s2-1.pdf){#fig-ejemplo-s2 fig-pos='H'}\n:::\n:::\n",
+    "supporting": [
+      "02-seccion2_files\\figure-pdf"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {
+      "knitr": [
+        "{\"type\":\"list\",\"attributes\":{},\"value\":[]}"
+      ]
+    },
+    "preserve": null,
+    "postProcess": false
+  }
+}

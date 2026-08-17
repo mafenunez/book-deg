@@ -1,0 +1,15 @@
+{
+  "hash": "3076ecf2629ebd1f4cc6369158020dd8",
+  "result": {
+    "engine": "knitr",
+    "markdown": "```{=html}\n<style>\nbody,\n#quarto-document-content,\nmain.content {\n  background-color: white;\n}\n\n#quarto-document-content h1,\n#quarto-document-content h2,\n#quarto-document-content p,\n#quarto-document-content li,\n#quarto-document-content strong,\n.callout-note {\n  color: #1B2740;\n}\n\n#quarto-document-content a {\n  color: #1B2740;\n}\n</style>\n```\n\n\n\n# Este documento {.unnumbered}\n\n\n\n\n\nEste libro está compuesto por tres secciones:\n\n- **Módulo 1** — Resultados sobre las características ociodemográfica de personas que les interesa estudiar un posgrado.\n- **Módulo 2** — Resultados sobre las preferencias Posgrado en Estudios de Género.\n- **Módulo 3** — Resultados sobre las preferencias Doctorado en Estudios de Género.",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

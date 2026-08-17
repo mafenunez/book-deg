@@ -1,0 +1,37 @@
+```{=html}
+<style>
+body,
+#quarto-document-content,
+main.content {
+  background-color: white;
+}
+
+#quarto-document-content h1,
+#quarto-document-content h2,
+#quarto-document-content p,
+#quarto-document-content li,
+#quarto-document-content strong,
+.callout-note {
+  color: #1B2740;
+}
+
+#quarto-document-content a {
+  color: #1B2740;
+}
+</style>
+```
+
+
+# Este documento {.unnumbered}
+
+```{r}
+#| label: setup
+#| include: false
+source("R/tema.R")
+```
+
+Este libro está compuesto por tres secciones:
+
+- **Módulo 1** — Resultados sobre las características ociodemográfica de personas que les interesa estudiar un posgrado.
+- **Módulo 2** — Resultados sobre las preferencias Posgrado en Estudios de Género.
+- **Módulo 3** — Resultados sobre las preferencias Doctorado en Estudios de Género.

@@ -1,0 +1,15 @@
+{
+  "hash": "ed22a56d2a65ef1b74469bdc5dfc5005",
+  "result": {
+    "engine": "knitr",
+    "markdown": "\n\n# Módulo 2\n\nPreferencias Posgrado en Estudios de Género\n\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

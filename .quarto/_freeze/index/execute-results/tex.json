@@ -1,0 +1,21 @@
+{
+  "hash": "75f81d2e568e043e88e3b7df59511c9a",
+  "result": {
+    "engine": "knitr",
+    "markdown": "# Prefacio {.unnumbered}\n\n\n\n\n\n\n\n::: {.portada-banner}\n![](images/banner.jpg)\n:::\n\nBienvenido/a a este libro. Aquí puedes escribir una introducción general,\nel objetivo del documento, a quién está dirigido y cómo está organizado.\n\nEste libro está compuesto por tres secciones:\n\n- **Sección 1** — descripción breve.\n- **Sección 2** — descripción breve.\n- **Sección 3** — descripción breve.\n\n::: {.callout-note}\n## Cómo usar el banner\nReemplaza el archivo `images/banner.jpg` por tu propia imagen (recomendado:\nformato horizontal, mínimo 1600×500 px aprox.). El nombre y la ruta deben\ncoincidir con lo indicado en `_quarto.yml` (`cover-image`) y en el bloque\n`.portada-banner` de este archivo.\n:::\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {
+      "knitr": [
+        "{\"type\":\"list\",\"attributes\":{},\"value\":[]}"
+      ]
+    },
+    "preserve": null,
+    "postProcess": false
+  }
+}

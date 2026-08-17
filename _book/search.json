@@ -1,0 +1,42 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Estudio de Demanda Doctorado en Estudios de Género",
+    "section": "",
+    "text": "Este documento\nEste libro está compuesto por tres secciones:\n\nMódulo 1 — Resultados sobre las características ociodemográfica de personas que les interesa estudiar un posgrado.\nMódulo 2 — Resultados sobre las preferencias Posgrado en Estudios de Género.\nMódulo 3 — Resultados sobre las preferencias Doctorado en Estudios de Género.",
+    "crumbs": [
+      "Este documento"
+    ]
+  },
+  {
+    "objectID": "01-seccion1.html",
+    "href": "01-seccion1.html",
+    "title": "Módulo 1",
+    "section": "",
+    "text": "Descripción sociodemográfica de personas que les interesa estudiar un posgrado",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Módulo 1</span>"
+    ]
+  },
+  {
+    "objectID": "02-seccion2.html",
+    "href": "02-seccion2.html",
+    "title": "Módulo 2",
+    "section": "",
+    "text": "Preferencias Posgrado en Estudios de Género",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Módulo 2</span>"
+    ]
+  },
+  {
+    "objectID": "03-seccion3.html",
+    "href": "03-seccion3.html",
+    "title": "Módulo 3",
+    "section": "",
+    "text": "Preferencias Doctorado en Estudios de Género",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Módulo 3</span>"
+    ]
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "hash": "08b710e67004c2de3fbae94c04a017d7",
+  "result": {
+    "engine": "knitr",
+    "markdown": "# Sección 1\n\n\n\n\n\n\n\nEscribe aquí el contenido de la Sección 1.\n\n## Ejemplo de figura con el estilo del libro\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(ggplot2)\n\ndatos <- data.frame(\n  categoria = c(\"A\", \"B\", \"C\", \"D\"),\n  valor = c(23, 41, 15, 32)\n)\n\nggplot(datos, aes(x = categoria, y = valor)) +\n  geom_col(fill = color_primario) +\n  labs(\n    title = \"Título del gráfico\",\n    subtitle = \"Subtítulo o contexto adicional\",\n    x = NULL, y = \"Valor\",\n    caption = \"Fuente: elaboración propia\"\n  ) +\n  tema_libro()\n```\n\n::: {.cell-output-display}\n![Ejemplo de gráfico con la paleta y tipografía del libro](01-seccion1_files/figure-pdf/fig-ejemplo-s1-1.pdf){#fig-ejemplo-s1 fig-pos='H'}\n:::\n:::\n",
+    "supporting": [
+      "01-seccion1_files\\figure-pdf"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {
+      "knitr": [
+        "{\"type\":\"list\",\"attributes\":{},\"value\":[]}"
+      ]
+    },
+    "preserve": null,
+    "postProcess": false
+  }
+}

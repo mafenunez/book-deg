@@ -1,0 +1,52 @@
+"0","deg <- select(deg,
+              id = `Nombre de usuario`,
+              importancia_pos_g =`¿Crees que es importante estudiar un Posgrado en Estudios de Género?`,
+              interes_pog_g = `Actualmente o en un futuro cercano, ¿Te interesaría estudiar un Posgrado en Estudios de Género?`,
+              edad = `¿Cuál es tu edad?`,
+              genero = `¿Con qué género te identificas?`,
+              residencia_chile = `¿Actualmente resides en Chile?`,
+              residencia_pais = `¿Cuál es tu país de residencia?`,
+              residencia_rm = `¿Actualmente resides en la Región Metropolitana?`,
+              residencia_regiones = `¿Cuál es tu región de residencia?`,
+              residencia_comuna_rm = `¿En qué comuna resides?`,
+              nivel_educ = `¿Cuál es el nivel educativo más alto que has terminado?`,
+              programa_ne = `Indica el nombre del programa cursado:`,
+              año_egreso_ne = `¿Cuál fue el año en que obtuviste tu último grado?`,
+              satisfaccion_ne = `¿Estás satisfecho(a) con tu nivel educativo actual?`,
+              ocupacion = `¿En qué sector profesional trabajas actualmente?`,
+              satisfaccion_ocupacion = `¿Estás satisfecho(a) con tu trabajo actual?`, 
+              aspectos_pos_g_universidad = `Si decidieras estudiar un Posgrado en Estudios de Género, ¿En qué medida consideras que son importantes los siguientes aspectos? [Prestigio de la Universidad]`,
+              aspectos_pos_g_cuerpo_academico = `Si decidieras estudiar un Posgrado en Estudios de Género, ¿En qué medida consideras que son importantes los siguientes aspectos? [Prestigio del Cuerpo Académico del Programa]`,
+              aspectos_pos_g_malla = `Si decidieras estudiar un Posgrado en Estudios de Género, ¿En qué medida consideras que son importantes los siguientes aspectos? [La malla de cursos del Programa]`,
+              aspectos_pos_g_costo = `Si decidieras estudiar un Posgrado en Estudios de Género, ¿En qué medida consideras que son importantes los siguientes aspectos? [Costo del Programa]`,
+              aspectos_pos_g_becas = `Si decidieras estudiar un Posgrado en Estudios de Género, ¿En qué medida consideras que son importantes los siguientes aspectos? [Existencia de Becas]`,
+              aspectos_pos_g_colab_inter = `Si decidieras estudiar un Posgrado en Estudios de Género, ¿En qué medida consideras que son importantes los siguientes aspectos? [Existencia de colaboraciones interdisciplinarias]`,
+              preferencia_localidad = `Si decidieras estudiar un Posgrado en Estudios de Género, prefieres un programa que se encuentre en:`,
+              razones_extranjero = `¿Cuáles son las principales razones por las que preferirías estudiar en el extranjero?`,
+              preferencia_uchile = `¿Te interesaría estudiar un programa impartido desde la Universidad de Chile?`,
+              razones_chile = `¿Cuáles son las principales razones por las que preferirías estudiar en Chile?`,
+              razones_uchile = `¿Cuáles son las principales razones por las que preferirías estudiar en esta universidad?`,
+              doctorado = `¿Has considerado estudiar un programa de Doctorado?`,
+              aspectos_deg = `Si decidieras estudiar un Doctorado en Estudios de Género, ¿Cuáles son aspectos que consideras más importantes para seleccionar un programa?`,
+              motivaciones_deg = `Pensando en tus propias motivaciones, indica la razón principal por la que te interesaría estudiar un Doctorado en Estudios de Género:`,
+              malla_cuanti = `¿En qué medida (en una escala de 1 a 5) esperas que la malla del programa privilegie cada uno de los siguientes elementos en sus cursos?  [Metodologías cuantitativas ]`,
+              malla_cuali = `¿En qué medida (en una escala de 1 a 5) esperas que la malla del programa privilegie cada uno de los siguientes elementos en sus cursos?  [Metodologías cualitativas ]`,
+              malla_teoria = `¿En qué medida (en una escala de 1 a 5) esperas que la malla del programa privilegie cada uno de los siguientes elementos en sus cursos?  [Perspectivas teóricas de género]`,
+              malla_pp = `¿En qué medida (en una escala de 1 a 5) esperas que la malla del programa privilegie cada uno de los siguientes elementos en sus cursos?  [Herramientas para la política pública]`,
+              tematicas_deg = `Indica las temáticas que te gustarían fueran abordadas en los cursos por el Doctorado en Estudios de Género (Marca todas las opciones que te parecen adecuadas)`,
+              interes_programa_deg = `¿Te parece interesante este programa?`,
+              matricula_programa_deg = `Si tuvieras la posibilidad ¿Te matricularías en él?`,
+              tiempo_programa_deg = `¿En cuánto tiempo más te imaginas estudiando este programa?`,
+              modalidad_programa_deg = `¿Qué modalidad de clases te serían más atractivas para realizar ese estudio?`,
+              horarios_programa_deg = `En caso de que el programa tuviera clases presenciales, ¿Qué horarios son los que más te convendría para estudiar?`,
+              recibir_info_deg = `¿Te gustaría recibir más información sobre nuestros programa de Doctorado en Estudios de Género más adelante?`,
+              comentario_final = `¿Tienes alguna pregunta o comentario sobre esta encuesta o sobre el programa presentado en esta oportunidad?`,
+            )
+"
+"1","[1m[33mError[39m in `select()`:[22m
+[33m![39m Can't select columns that don't exist.
+[31m✖[39m Column `Nombre de usuario` doesn't exist.
+Backtrace:
+[90m 1. [39m[1mdplyr[22m::select(...)
+[90m 2. [39m[1m[94mdplyr:::select.data.frame([39m[22m...[1m[94m)[39m[22m
+"

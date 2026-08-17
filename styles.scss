@@ -1,0 +1,188 @@
+/*-- scss:defaults --*/
+
+// Tipografía (misma familia que usas en R con sysfonts/showtext)
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+$font-family-sans-serif: "Poppins", sans-serif;
+
+// Paleta de marca (idéntica a la usada en las figuras de R)
+$color-primario:   #DD5C61; // rojo coral - color de marca / series únicas
+$color-secundario: #1B2740; // azul marino - texto, ejes, líneas de referencia
+$color-fondo:      #FFFFFF;
+$color-texto:      #1B2740;
+$color-texto-sec:  #1B2740; // gris azulado - subtítulos y notas al pie
+$color-grid:       #1B2740;
+
+$primary:   $color-primario;
+$body-bg:   $color-fondo;
+$body-color: $color-texto;
+$link-color: $color-primario;
+
+$navbar-bg: $color-secundario;
+$sidebar-bg: #F7F6F5;
+
+$headings-color: $color-secundario;
+$headings-font-weight: 600;
+
+/*-- scss:rules --*/
+
+body {
+  font-family: $font-family-sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-sans-serif;
+  font-weight: 600;
+  color: $color-secundario;
+}
+
+.title, .subtitle {
+  font-weight: 700;
+}
+
+// Enlaces
+a { color: $color-primario; }
+a:hover { color: darken(#DD5C61, 12%); }
+
+// Bloques de código
+pre.sourceCode, div.sourceCode {
+  border-left: 3px solid $color-primario;
+}
+
+// Notas al pie / texto secundario
+.text-muted, .subtitle, figcaption, .figure-caption {
+  color: $color-texto-sec !important;
+}
+
+// Tablas
+table {
+  border-color: $color-grid;
+}
+thead {
+  border-bottom: 2px solid $color-secundario;
+}
+
+// --- Banner de portada (index.qmd) ---
+.portada-banner {
+  width: 100%;
+  margin: 0 0 2rem 0;
+  line-height: 0;
+}
+
+.portada-banner img {
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+
+.quarto-title-banner {
+  background-color: $color-secundario;
+}
+
+.quarto-title-block .quarto-title-meta-heading {
+  color: $color-texto-sec;
+}
+
+// --- Barra lateral izquierda ---
+#quarto-sidebar,
+#quarto-sidebar.sidebar-navigation.floating,
+.sidebar.sidebar-navigation {
+  background-color: $color-primario !important;
+}
+
+#quarto-sidebar .sidebar-title,
+#quarto-sidebar a,
+#quarto-sidebar .sidebar-item-text,
+#quarto-sidebar .sidebar-item-toggle,
+#quarto-sidebar i {
+  color: #FFFFFF !important;
+}
+
+#quarto-sidebar a:hover,
+#quarto-sidebar .sidebar-item.active > .sidebar-item-container .sidebar-item-text {
+  color: $color-secundario !important;
+  font-weight: 600;
+}
+
+#quarto-sidebar .sidebar-item-container:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+// --- Banner de cada sección (capítulos 1, 2, 3) ---
+.seccion-banner {
+  width: 100%;
+  margin: 0 0 2rem 0;
+  line-height: 0;
+}
+
+.seccion-banner img {
+  width: 100%;
+  height: auto;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+
+// --- Banner en el pie de página (page-footer, todas las páginas) ---
+.nav-footer {
+  flex-direction: column;
+  padding: 0 !important;
+}
+
+.nav-footer-center {
+  order: -1;
+  width: 100%;
+  margin: 0;
+}
+
+.nav-footer-center p {
+  margin: 0;
+  line-height: 0;
+}
+
+.nav-footer-center img {
+  width: 100%;
+  height: auto;
+  max-height: 140px;
+  object-fit: cover;
+  display: block;
+}
+
+.nav-footer-left, .nav-footer-right {
+  padding: 0.75rem 1rem;
+}
+
+
+// --- Barra de navegación superior (navbar) ---
+.navbar {
+  background-color: $color-secundario !important;
+}
+
+.navbar-title,
+.navbar-brand,
+.navbar-nav .nav-link {
+  color: #FFFFFF !important;
+  font-family: $font-family-sans-serif;
+  font-weight: 500;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: $color-primario !important;
+}
+
+// Ícono y caja de búsqueda
+#quarto-search input,
+.aa-Input {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+}
+
+.navbar .quarto-search-icon,
+.navbar-toggler-icon {
+  filter: invert(1);
+}

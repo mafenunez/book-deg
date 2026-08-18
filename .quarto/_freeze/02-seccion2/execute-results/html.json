@@ -1,9 +1,11 @@
 {
-  "hash": "ed22a56d2a65ef1b74469bdc5dfc5005",
+  "hash": "b5be6b917e0950d0bde6012b87c3c52e",
   "result": {
     "engine": "knitr",
-    "markdown": "\n\n# Módulo 2\n\nPreferencias Posgrado en Estudios de Género\n\n\n\n",
-    "supporting": [],
+    "markdown": "\n\n# Módulo 2\n\nPreferencias Posgrado en Estudios de Género\n\n\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n::: {.cell-output-display}\n![](02-seccion2_files/figure-html/unnamed-chunk-3-1.png){width=2100}\n:::\n:::\n\n::: {.cell}\n::: {.cell-output-display}\n![](02-seccion2_files/figure-html/unnamed-chunk-4-1.png){width=2100}\n:::\n:::\n\n::: {.cell}\n::: {.cell-output-display}\n![](02-seccion2_files/figure-html/unnamed-chunk-5-1.png){width=2100}\n:::\n:::\n\n::: {.cell}\n::: {.cell-output-display}\n![](02-seccion2_files/figure-html/unnamed-chunk-6-1.png){width=2100}\n:::\n:::\n\n::: {.cell}\n::: {.cell-output-display}\n![](02-seccion2_files/figure-html/unnamed-chunk-7-1.png){width=2100}\n:::\n:::\n\n::: {.cell}\n::: {.cell-output-display}\n![](02-seccion2_files/figure-html/unnamed-chunk-8-1.png){width=2100}\n:::\n:::\n\n::: {.cell}\n::: {.cell-output-display}\n![](02-seccion2_files/figure-html/unnamed-chunk-9-1.png){width=2100}\n:::\n:::\n\n::: {.cell}\n::: {.cell-output-display}\n![](02-seccion2_files/figure-html/unnamed-chunk-10-1.png){width=2100}\n:::\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n::: {.cell-output-display}\n![](02-seccion2_files/figure-html/unnamed-chunk-12-1.png){width=2100}\n:::\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n::: {.cell-output-display}\n![](02-seccion2_files/figure-html/unnamed-chunk-14-1.png){width=2100}\n:::\n:::\n\n::: {.cell}\n::: {.cell-output-display}\n![](02-seccion2_files/figure-html/unnamed-chunk-15-1.png){width=2100}\n:::\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n::: {.cell-output-display}\n![](02-seccion2_files/figure-html/unnamed-chunk-17-1.png){width=2100}\n:::\n:::\n",
+    "supporting": [
+      "02-seccion2_files\\figure-html"
+    ],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],

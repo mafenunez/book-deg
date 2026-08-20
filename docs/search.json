@@ -14,7 +14,67 @@
     "href": "01-seccion1.html",
     "title": "Módulo 1",
     "section": "",
-    "text": "Descripción sociodemográfica de personas que les interesa estudiar un posgrado",
+    "text": "Edad",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Módulo 1</span>"
+    ]
+  },
+  {
+    "objectID": "01-seccion1.html#género",
+    "href": "01-seccion1.html#género",
+    "title": "Módulo 1",
+    "section": "Género",
+    "text": "Género",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Módulo 1</span>"
+    ]
+  },
+  {
+    "objectID": "01-seccion1.html#residencia-chile",
+    "href": "01-seccion1.html#residencia-chile",
+    "title": "Módulo 1",
+    "section": "Residencia: Chile",
+    "text": "Residencia: Chile",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Módulo 1</span>"
+    ]
+  },
+  {
+    "objectID": "01-seccion1.html#residencia-regiones-de-chile",
+    "href": "01-seccion1.html#residencia-regiones-de-chile",
+    "title": "Módulo 1",
+    "section": "Residencia: Regiones de Chile",
+    "text": "Residencia: Regiones de Chile",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Módulo 1</span>"
+    ]
+  },
+  {
+    "objectID": "01-seccion1.html#residencia-comunas-de-la-rm",
+    "href": "01-seccion1.html#residencia-comunas-de-la-rm",
+    "title": "Módulo 1",
+    "section": "Residencia: Comunas de la RM",
+    "text": "Residencia: Comunas de la RM",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Módulo 1</span>"
+    ]
+  },
+  {
+    "objectID": "01-seccion1.html#nivel-educacional",
+    "href": "01-seccion1.html#nivel-educacional",
+    "title": "Módulo 1",
+    "section": "Nivel educacional",
+    "text": "Nivel educacional\n\nDoctorado\n\n\n\n\n\n\n\n\n\n\n\nMagíster\n\n\n\n\n\n\n\n\n\n\n\nPregrado\n\n\n\n\n\n\n\n\n\n\n\nAño de egreso\n\n\n\n\n\n\n\n\n\n\n\nSatisfacción",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Módulo 1</span>"
+    ]
+  },
+  {
+    "objectID": "01-seccion1.html#ocupación",
+    "href": "01-seccion1.html#ocupación",
+    "title": "Módulo 1",
+    "section": "Ocupación",
+    "text": "Ocupación\n\n\n\n\n\n\n\n\n\n\nSatisfacción",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Módulo 1</span>"
     ]
@@ -24,7 +84,17 @@
     "href": "02-seccion2.html",
     "title": "Módulo 2",
     "section": "",
-    "text": "Preferencias Posgrado en Estudios de Género",
+    "text": "Aspectos importantes para un posgrado en Estudios de Género",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Módulo 2</span>"
+    ]
+  },
+  {
+    "objectID": "02-seccion2.html#localidad-del-programa",
+    "href": "02-seccion2.html#localidad-del-programa",
+    "title": "Módulo 2",
+    "section": "Localidad del programa",
+    "text": "Localidad del programa\n\n\n\n\n\n\n\n\n\n\nRazones preferencia extranjero\n\n\n\n\n\n\n\n\n\n\n\nRazones preferencia Chile\n\n\n\n\n\n\n\n\n\n\n\nPreferencia Universidad de Chile\n\n\n\n\n\n\n\n\n\n\n\nRazones preferencia Universidad de Chile",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Módulo 2</span>"
     ]

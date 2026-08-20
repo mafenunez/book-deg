@@ -430,32 +430,37 @@ grafico_barras_multirespuesta <- function(datos, columnas, etiquetas = NULL,
 }
 ```
 
-
+## Edad
 ```{r}
 #| echo: false
 #| warning: false
 #| message: false
+#| label: edad
 
 histograma(deg, edad, titulo = "Edad", subtitulo = "Personas interesadas en estudiar un Posgrado", mostrar_media = TRUE,
            mostrar_todos_los_valores = TRUE)
 ```
 
 
-
+## Género
 ```{r}
 #| echo: false
 #| warning: false
 #| message: false
+#| label: genero
 
 grafico_barras_uni(deg, genero, titulo = "Género", subtitulo = "Personas interesadas en estudiar un Posgrado",
                    ancho_etiqueta = 20, mostrar_pct = TRUE)
 
 ```
 <br>
+
+## Residencia: Chile
 ```{r}
 #| echo: false
 #| warning: false
 #| message: false
+#| label: residencia-chile
 
 pais <- deg %>% filter(interes_pog_g=="Sí") %>% 
   dplyr::select(residencia_chile) 
@@ -466,10 +471,13 @@ grafico_dona(pais, residencia_chile, titulo = "Residencia: Chile", subtitulo = "
 ```
 
 <br>
+
+## Residencia: Regiones de Chile
 ```{r}
 #| echo: false
 #| warning: false
 #| message: false
+#| label: residencia-regiones
 
 
 deg <- deg %>% 
@@ -522,12 +530,16 @@ reg <- deg %>% filter(interes_pog_g=="Sí") %>%
 
 
 grafico_barras_uni(reg, residencia_regiones, titulo = "Residencia: Regiones en Chile", subtitulo = "Personas interesadas en estudiar un Posgrado",
-                         ancho_etiqueta = 20, mostrar_pct = FALSE)
+                         ancho_etiqueta = 20, mostrar_pct = TRUE)
 ```
+
+
+## Residencia: Comunas de la RM
 ```{r}
 #| echo: false
 #| warning: false
 #| message: false
+#| label: residencia-comuna
 
 deg <- deg %>% 
   mutate(
@@ -581,10 +593,10 @@ com <- deg %>% filter(interes_pog_g=="Sí") %>%
   dplyr::select(comuna) 
 
 grafico_barras_uni(com, comuna, titulo = "Residencia: Comunas RM, Chile", subtitulo = "Personas interesadas en estudiar un Posgrado",
-                         ancho_etiqueta = 20, mostrar_pct = FALSE)
+                         ancho_etiqueta = 20, mostrar_pct = TRUE)
 ```
 
-
+## Nivel educacional
 ```{r}
 #| echo: false
 #| warning: false
@@ -631,14 +643,16 @@ d1 <- d1 %>%
 
 ```
 
+### Doctorado
 ```{r}
 #| echo: false
 #| warning: false
 #| message: false
 #| fig-height: !expr altura_barras(d1, programa_doctorado)
+#| label: doctorado
 
 grafico_barras_uni(d1, programa_doctorado, titulo = "Programa cursado: Doctorado", subtitulo = "Personas interesadas en estudiar un Posgrado",
-                         ancho_etiqueta = 30, mostrar_pct = FALSE)
+                         ancho_etiqueta = 30, mostrar_pct = TRUE)
 
 ```
 
@@ -737,15 +751,16 @@ d2 <- d2 %>%
   )
 ```
 
-
+### Magíster
 ```{r}
 #| echo: false
 #| warning: false
 #| message: false
 #| fig-height: !expr altura_barras(d2, programa_magister)
+#| label: magister
 
 grafico_barras_uni(d2, programa_magister, titulo = "Programa cursado: Magíster", subtitulo = "Personas interesadas en estudiar un Posgrado",
-                         ancho_etiqueta = 35, mostrar_pct = FALSE)
+                         ancho_etiqueta = 35, mostrar_pct = TRUE)
 ```
 
 
@@ -805,29 +820,63 @@ d3 <- d3 %>%
 
 ```
 
+### Pregrado
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| fig-height: !expr altura_barras(d3, programa_licienciatura)
+#| label: pregrado
+
+
+grafico_barras_uni(d3, programa_licienciatura, titulo = "Programa cursado: Licenciado(a) / Titulado(a)", subtitulo = "Personas interesadas en estudiar un Posgrado",
+                         ancho_etiqueta = 30, mostrar_pct = TRUE)
+```
+
+### Año de egreso 
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: año-egreso
+
+histograma(deg, año_egreso_ne, titulo = "Año de egreso del programa cursado", subtitulo = "Personas interesadas en estudiar un Posgrado", mostrar_media = TRUE,
+           mostrar_todos_los_valores = TRUE)
+```
+
+### Satisfacción
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+
+deg$satisfaccion_ne <- car::recode(deg$satisfaccion_ne,
+                                            recodes = c("
+                                                       'No sé' = NA;
+                                                       'Prefiero no responder' = NA"),
+                                 as.factor = TRUE,
+                                 levels = c("Muy insatisfecho(a)",
+                                            "Insatisfecho(a)",
+                                            "Ni satisfecho(a) ni insatisfecho(a)",
+                                            "Satisfecho(a)",
+                                            "Muy satisfecho(a)"))
+```
+
 
 ```{r}
 #| echo: false
 #| warning: false
 #| message: false
 #| fig-height: !expr altura_barras(d3, programa_licienciatura)
+#| label: satisfaccion-ne
 
 
-grafico_barras_uni(d3, programa_licienciatura, titulo = "Programa cursado: Licenciado(a) / Titulado(a)", subtitulo = "Personas interesadas en estudiar un Posgrado",
-                         ancho_etiqueta = 30, mostrar_pct = FALSE)
+grafico_barras_uni(deg, satisfaccion_ne, titulo = "Satisfacción con elnivel educacional actual", subtitulo = "Personas interesadas en estudiar un Posgrado",
+                         ancho_etiqueta = 30, mostrar_pct = TRUE)
 ```
 
-
-```{r}
-#| echo: false
-#| warning: false
-#| message: false
-
-histograma(deg, año_egreso_ne, titulo = "Año de egreso del programa cursado", subtitulo = "Personas interesadas en estudiar un Posgrado", mostrar_media = TRUE,
-           mostrar_todos_los_valores = TRUE)
-```
-
-
+## Ocupación 
 ```{r}
 #| echo: false
 #| warning: false
@@ -884,42 +933,14 @@ d4 <- deg %>%
 #| warning: false
 #| message: false
 #| fig-height: !expr altura_barras(d3, programa_licienciatura)
+#| label: ocupacion
 
 
 grafico_barras_uni(d4, ocupacion, titulo = "Sector profesional en el que trabaja actualmente", subtitulo = "Personas interesadas en estudiar un Posgrado",
-                         ancho_etiqueta = 30, mostrar_pct = FALSE)
+                         ancho_etiqueta = 30, mostrar_pct = TRUE)
 ```
 
-```{r}
-#| echo: false
-#| warning: false
-#| message: false
-
-
-deg$satisfaccion_ne <- car::recode(deg$satisfaccion_ne,
-                                            recodes = c("
-                                                       'No sé' = NA;
-                                                       'Prefiero no responder' = NA"),
-                                 as.factor = TRUE,
-                                 levels = c("Muy insatisfecho(a)",
-                                            "Insatisfecho(a)",
-                                            "Ni satisfecho(a) ni insatisfecho(a)",
-                                            "Satisfecho(a)",
-                                            "Muy satisfecho(a)"))
-```
-
-
-```{r}
-#| echo: false
-#| warning: false
-#| message: false
-#| fig-height: !expr altura_barras(d3, programa_licienciatura)
-
-
-grafico_barras_uni(deg, satisfaccion_ne, titulo = "Satisfacción con elnivel educacional actual", subtitulo = "Personas interesadas en estudiar un Posgrado",
-                         ancho_etiqueta = 30, mostrar_pct = FALSE)
-```
-
+### Satisfacción 
 ```{r}
 #| echo: false
 #| warning: false
@@ -943,8 +964,9 @@ deg$satisfaccion_ocupacion <- car::recode(deg$satisfaccion_ocupacion,
 #| warning: false
 #| message: false
 #| fig-height: !expr altura_barras(d3, programa_licienciatura)
+#| label: satisfaccion-ocupaciom
 
 
 grafico_barras_uni(deg, satisfaccion_ocupacion, titulo = "Satisfacción con el trabajo actual", subtitulo = "Personas interesadas en estudiar un Posgrado",
-                         ancho_etiqueta = 30, mostrar_pct = FALSE)
+                         ancho_etiqueta = 30, mostrar_pct = TRUE)
 ```

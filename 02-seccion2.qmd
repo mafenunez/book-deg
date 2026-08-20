@@ -425,10 +425,12 @@ grafico_barras_multirespuesta <- function(datos, columnas, etiquetas = NULL,
 }
 ```
 
+## Aspectos importantes para un posgrado en Estudios de Género
 ```{r}
 #| echo: false
 #| warning: false
 #| message: false
+#| label: prestigio-u-posgrado
 
 
 grafico_dona(deg,  aspectos_pos_g_universidad, titulo = "Prestigio de la universidad", subtitulo = "En qué medida consideras que son importantes los siguientes aspectos",
@@ -440,6 +442,7 @@ grafico_dona(deg,  aspectos_pos_g_universidad, titulo = "Prestigio de la univers
 #| echo: false
 #| warning: false
 #| message: false
+#| label: prestigio-academico-posgrado
 
 grafico_dona(deg,  aspectos_pos_g_cuerpo_academico, titulo = "Prestigio del Cuerpo Académico del Programa", subtitulo = "En qué medida consideras que son importantes los siguientes aspectos",
                         orden = c( "Mucho","Bastante","Algo","Poco"), mostrar_n = TRUE)
@@ -450,6 +453,7 @@ grafico_dona(deg,  aspectos_pos_g_cuerpo_academico, titulo = "Prestigio del Cuer
 #| echo: false
 #| warning: false
 #| message: false
+#| label: malla-posgrado
 
 
 grafico_dona(deg,  aspectos_pos_g_malla, titulo = "La malla del Programa", subtitulo = "En qué medida consideras que son importantes los siguientes aspectos",
@@ -462,6 +466,7 @@ grafico_dona(deg,  aspectos_pos_g_malla, titulo = "La malla del Programa", subti
 #| echo: false
 #| warning: false
 #| message: false
+#| label: costo-posgrado
 
 
 grafico_dona(deg,  aspectos_pos_g_costo, titulo = "Costo del Programa", subtitulo = "En qué medida consideras que son importantes los siguientes aspectos",
@@ -473,6 +478,7 @@ grafico_dona(deg,  aspectos_pos_g_costo, titulo = "Costo del Programa", subtitul
 #| echo: false
 #| warning: false
 #| message: false
+#| label: becas-posgrado
 
 
 grafico_dona(deg,  aspectos_pos_g_becas, titulo = "Existencia de becas", subtitulo = "En qué medida consideras que son importantes los siguientes aspectos",
@@ -485,6 +491,7 @@ grafico_dona(deg,  aspectos_pos_g_becas, titulo = "Existencia de becas", subtitu
 #| echo: false
 #| warning: false
 #| message: false
+#| label: colab-posgrado
 
 
 grafico_dona(deg,  aspectos_pos_g_colab_inter, titulo = "Existencia de colaboraciones interdisciplinarias", subtitulo = "En qué medida consideras que son importantes los siguientes aspectos",
@@ -492,25 +499,19 @@ grafico_dona(deg,  aspectos_pos_g_colab_inter, titulo = "Existencia de colaborac
 
 ```
 
+
+## Localidad del programa 
 ```{r}
 #| echo: false
 #| warning: false
 #| message: false
+#| label: preferencia-localidad
 
 grafico_barras_uni(deg, preferencia_localidad, titulo = "Prefiere un programa que se encuentre en", subtitulo = "",
                    ancho_etiqueta = 20, mostrar_pct = TRUE)
 
 ```
 
-```{r}
-#| echo: false
-#| warning: false
-#| message: false
-
-
-grafico_dona(deg, preferencia_localidad, titulo = "Prefiere un programa que se encuentre en", subtitulo = "",
-                         orden = NULL, mostrar_n = TRUE)
-```
 
 ```{r}
 #| echo: false
@@ -585,11 +586,12 @@ separar_multirespuesta <- function(datos, variable, prefijo = "cat_") {
  
 ```
 
-
+### Razones preferencia extranjero
 ```{r}
 #| echo: false
 #| warning: false
 #| message: false
+#| label: razones-extranjero
 
 
 grafico_barras_multirespuesta(
@@ -621,10 +623,14 @@ grafico_barras_multirespuesta(
 
 ```
 
+### Razones preferencia Chile
 ```{r}
 #| echo: false
 #| warning: false
 #| message: false
+#| label: razones-chile
+
+
 grafico_barras_multirespuesta(
   datos_dummies,                    # el data frame que salió de recodificar_multirespuesta.R
   columnas  = columnas_temas,
@@ -634,12 +640,13 @@ grafico_barras_multirespuesta(
 
 ```
 
-
+### Preferencia Universidad de Chile 
 
 ```{r}
 #| echo: false
 #| warning: false
 #| message: false
+#| label: localidad-uchile
 
 
 grafico_dona(deg, preferencia_uchile, titulo = "Prefiere un programa que se encuentre en la Universidad de Chile", subtitulo = "",
@@ -674,10 +681,12 @@ grafico_dona(deg, preferencia_uchile, titulo = "Prefiere un programa que se encu
 
 ```
 
+### Razones preferencia Universidad de Chile 
 ```{r}
 #| echo: false
 #| warning: false
 #| message: false
+#| label: razones-uchile
 grafico_barras_multirespuesta(
   datos_dummies,                    # el data frame que salió de recodificar_multirespuesta.R
   columnas  = columnas_temas,

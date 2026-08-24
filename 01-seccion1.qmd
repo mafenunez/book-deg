@@ -487,7 +487,7 @@ deg <- deg %>%
 
       is.na(residencia_regiones) ~ NA_character_,
       str_detect(residencia_regiones,
-                 "España|Exterior|Fuera de Chile, originaria de la RM de Santiago|jujuy|Lima|Western Cape") ~ NA_character_,
+                 "España|Exterior|Fuera de Chile, originaria de la RM de Santiago|jujuy|Lima|Western Cape|Costa|Lima|No vivo en Chle|provincia de buenos aires|Vivo en Ecuador") ~ NA_character_,
       
   
       str_detect(residencia_regiones,
@@ -503,7 +503,7 @@ deg <- deg %>%
         "Concepción",
   
       str_detect(residencia_regiones,
-                 "La Araucanía") ~
+                 "La Araucanía|Araucanía") ~
         "La Araucanía",
       
        str_detect(residencia_regiones,
@@ -516,11 +516,11 @@ deg <- deg %>%
                  "Región de Atacama") ~
         "Atacama",
       str_detect(residencia_regiones,
-                 "Valparaiso|Valparaíso") ~
+                 "Valparaiso|Valparaíso|Viña del mar") ~
         "Valparaíso",
-       str_detect(residencia_regiones,
-                 "Viña del mar ") ~
-        "Viña del Mar"
+      str_detect(residencia_regiones,
+                 "Maule") ~
+        "Maule"
       
     )
   )
@@ -549,41 +549,102 @@ deg <- deg %>%
       # NA reales
       # -------------------------
       is.na(residencia_comuna_rm) ~ NA_character_,
+      str_detect(residencia_regiones,
+                 "Quito|Quito, Distrito Mteropolitano|Vivo en un Barrio en la ciudad de Bogotá D,c") ~ NA_character_,
       
-      # -------------------------
-      # la reina
-      # -------------------------
+       str_detect(residencia_comuna_rm,
+                 "Colina") ~
+        "Colina",
+      
+       str_detect(residencia_comuna_rm,
+                 "Conchalí") ~
+        "Conchalí",
+      
+       str_detect(residencia_comuna_rm,
+                 "Huechuraba") ~
+        "Huechuraba",
+      
+       str_detect(residencia_comuna_rm,
+                 "La Cisterna") ~
+        "La Cisterna",
+      
+       str_detect(residencia_comuna_rm,
+                 "La Florida") ~
+        "La Florida",
+      
+       str_detect(residencia_comuna_rm,
+                 "La Pintana") ~
+        "La Pintana",
+      
       str_detect(residencia_comuna_rm,
                  "La reina|La Reina") ~
         "La Reina",
       
-      # -------------------------
-      # peñaflor
-      # -------------------------
+       str_detect(residencia_comuna_rm,
+                 "Las Condes|LAS CONDES") ~
+        "Las Condes",
+     
+        str_detect(residencia_comuna_rm,
+                 "La reina|La Reina") ~
+        "Lo Espejo",
+      
+       str_detect(residencia_comuna_rm,
+                 "Macul") ~
+        "Macul",
+      
+       str_detect(residencia_comuna_rm,
+                 "Maipú") ~
+        "Maipú",
+      
+       str_detect(residencia_comuna_rm,
+                 "Melipilla") ~
+        "Melipilla",
+      str_detect(residencia_comuna_rm,
+                 "Ñuñoa|ñuñoa") ~
+        "Ñuñoa",
+      
+       str_detect(residencia_comuna_rm,
+                 "Pedro Aguirre Cerda") ~
+        "Pedro Aguirre Cerda",
       str_detect(residencia_comuna_rm,
                  "peñaflor") ~
         "Peñaflor",
       
-      # -------------------------
-      # peñalolen
-      # -------------------------
+  
       str_detect(residencia_comuna_rm,
                  "peñalolen") ~
         "Peñalolen",
       
-      # -------------------------
-      # provi
-      # -------------------------
+      
       str_detect(residencia_comuna_rm,
                  "Povidencia|providencia|Providencia") ~
         "Providencia",
       
-      # -------------------------
-      # santiago
-      # -------------------------
+       str_detect(residencia_comuna_rm,
+                 "puente alto|Puente alto|Puente Alto") ~
+        "Puente Alto",
+       str_detect(residencia_comuna_rm,
+                 "Quinta Normal") ~
+        "Quinta Normal",
+      
+       str_detect(residencia_comuna_rm,
+                 "Recoleta") ~
+        "Recoleta",
+      
+       str_detect(residencia_comuna_rm,
+                 "Renca") ~
+        "Renca",
+     
+       str_detect(residencia_comuna_rm,
+                 "San Bernardo") ~
+        "San Bernardo",
+      
+       str_detect(residencia_comuna_rm,
+                 "San Miguel") ~
+        "San Miguel",
       str_detect(residencia_comuna_rm,
                  "santiago|
-                  Santiago") ~
+                  Santiago|Santiago centro") ~
         "Santiago"
       
     )
@@ -596,7 +657,73 @@ grafico_barras_uni(com, comuna, titulo = "Residencia: Comunas RM, Chile", subtit
                          ancho_etiqueta = 20, mostrar_pct = TRUE)
 ```
 
+
+## Residencia: Extranjero
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: residencia-extranjero
+
+
+
+deg <- deg %>% 
+  mutate(
+    residencia_pais = case_when(
+      
+
+      is.na(residencia_pais) ~ NA_character_,
+    
+  
+      str_detect(residencia_pais,
+                 "Argentina|argentina") ~
+        "Argentina",
+     
+      str_detect(residencia_pais,
+                 "Colombia") ~
+        "Colombia",
+      
+      str_detect(residencia_pais,
+                 "Ecuador") ~
+        "Ecuador",
+  
+      str_detect(residencia_pais,
+                 "España") ~
+        "España",
+      
+       str_detect(residencia_pais,
+                 "Italia") ~
+        "Italia",
+      str_detect(residencia_pais,
+                 "Perú") ~
+        "Perú",
+      str_detect(residencia_pais,
+                 "Sudáfrica") ~
+        "Sudáfrica"
+    )
+  )
+pais <- deg %>% filter(interes_pog_g=="Sí") %>% 
+  dplyr::select(residencia_pais) 
+
+grafico_barras_uni(pais, residencia_pais, titulo = "Residencia: Extranjero", subtitulo = "Personas interesadas en estudiar un Posgrado",
+                         ancho_etiqueta = 20, mostrar_pct = TRUE)
+
+```
+
 ## Nivel educacional
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: prestigio-u-posgrado
+
+
+grafico_dona(deg,  nivel_educ, titulo = "Nivel educacional", subtitulo = "Personas interesadas en estudiar un Posgrado",
+                         orden = NULL, mostrar_n = TRUE)
+
+```
+
 ```{r}
 #| echo: false
 #| warning: false

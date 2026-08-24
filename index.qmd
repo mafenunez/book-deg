@@ -30,8 +30,13 @@ main.content {
 source("R/tema.R")
 ```
 
-Este libro está compuesto por tres secciones:
+Este libro contiene los resultados de la encuesta realizada en el marco de la **propuesta de un Doctorado en Estudios de Género** de la Facultad de Ciencias Sociales de la Universidad de Chile.  
+
+Se trata de un estudio que busca conocer los intereses y motivaciones respecto a un programa de este tipo y así orientar mejor su formulación. 
+
+En función de ello, este libro está compuesto por tres secciones:
 
 - **Módulo 1**: Resultados sobre las características sociodemográficas de personas que les interesa estudiar un posgrado.
-- **Módulo 2**: Resultados sobre las preferencias Posgrado en Estudios de Género.
-- **Módulo 3**: Resultados sobre las preferencias Doctorado en Estudios de Género.
+- **Módulo 2**: Resultados sobre las preferencias de un Posgrado en Estudios de Género.
+- **Módulo 3**: Resultados sobre las preferencias de un Doctorado en Estudios de Género. 
+

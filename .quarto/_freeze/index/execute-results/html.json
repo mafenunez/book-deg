@@ -1,8 +1,8 @@
 {
-  "hash": "ff89eee1ff1f0cc56cbe2943c4810143",
+  "hash": "922d532aefae46210096f3e1e1f2c410",
   "result": {
     "engine": "knitr",
-    "markdown": "```{=html}\n<style>\nbody,\n#quarto-document-content,\nmain.content {\n  background-color: white;\n}\n\n#quarto-document-content h1,\n#quarto-document-content h2,\n#quarto-document-content p,\n#quarto-document-content li,\n#quarto-document-content strong,\n.callout-note {\n  color: #1B2740;\n}\n\n#quarto-document-content a {\n  color: #1B2740;\n}\n</style>\n```\n\n\n\n# Este documento {.unnumbered}\n\n\n\n\n\nEste libro está compuesto por tres secciones:\n\n- **Módulo 1**: Resultados sobre las características sociodemográficas de personas que les interesa estudiar un posgrado.\n- **Módulo 2**: Resultados sobre las preferencias Posgrado en Estudios de Género.\n- **Módulo 3**: Resultados sobre las preferencias Doctorado en Estudios de Género.",
+    "markdown": "```{=html}\n<style>\nbody,\n#quarto-document-content,\nmain.content {\n  background-color: white;\n}\n\n#quarto-document-content h1,\n#quarto-document-content h2,\n#quarto-document-content p,\n#quarto-document-content li,\n#quarto-document-content strong,\n.callout-note {\n  color: #1B2740;\n}\n\n#quarto-document-content a {\n  color: #1B2740;\n}\n</style>\n```\n\n\n\n# Este documento {.unnumbered}\n\n\n\n\n\nEste libro contiene los resultados de la encuesta realizada en el marco de la **propuesta de un Doctorado en Estudios de Género** de la Facultad de Ciencias Sociales de la Universidad de Chile.  \n\nSe trata de un estudio que busca conocer los intereses y motivaciones respecto a un programa de este tipo y así orientar mejor su formulación. \n\nEn función de ello, este libro está compuesto por tres secciones:\n\n- **Módulo 1**: Resultados sobre las características sociodemográficas de personas que les interesa estudiar un posgrado.\n- **Módulo 2**: Resultados sobre las preferencias de un Posgrado en Estudios de Género.\n- **Módulo 3**: Resultados sobre las preferencias de un Doctorado en Estudios de Género. \n\n",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"

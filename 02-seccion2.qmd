@@ -576,9 +576,9 @@ separar_multirespuesta <- function(datos, variable, prefijo = "cat_") {
                      "razon_Me resulta más accesible económicamente.",
                      "razon_Para tener la experiencia de vivir en otro país")
 
- etiqueta_temas <- c("El prestigio de la Universidad.",
-                     "Me interesa trabajar con alguien o equipo de la institución.",
-                     "Me resulta más accesible económicamente.",
+ etiquetas_temas <- c("El prestigio de la Universidad",
+                     "Me interesa trabajar con alguien o equipo de la institución",
+                     "Me resulta más accesible económicamente",
                      "Para tener la experiencia de vivir en otro país",
                      "Prefiero no responder")
  
@@ -597,7 +597,7 @@ separar_multirespuesta <- function(datos, variable, prefijo = "cat_") {
 grafico_barras_multirespuesta(
   datos_dummies,                    # el data frame que salió de recodificar_multirespuesta.R
   columnas  = columnas_temas,
- # etiquetas = etiquetas_temas,
+  etiquetas = etiquetas_temas,
   titulo    = "Principales razones por las que preferirías estudiar en el extranjero"
 )
 
@@ -619,6 +619,13 @@ grafico_barras_multirespuesta(
                      "razon_Me interesa trabajar con alguien o equipo de la institución.",
                      "razon_Me resulta más accesible económicamente.",
                      "razon_Me permite estar cerca de mi familia o red de apoyo.")
+ 
+ etiquetas_temas <- c("El prestigio de la Universidad",
+                     "Me conviene por mi trabajo actual",
+                     "Me manejo bien en el idioma en que se dicta",
+                     "Me interesa trabajar con alguien o equipo de la institución",
+                     "Me resulta más accesible económicamente",
+                     "Me permite estar cerca de mi familia o red de apoyo")
 
 
 ```
@@ -634,7 +641,7 @@ grafico_barras_multirespuesta(
 grafico_barras_multirespuesta(
   datos_dummies,                    # el data frame que salió de recodificar_multirespuesta.R
   columnas  = columnas_temas,
- # etiquetas = etiquetas_temas,
+  etiquetas = etiquetas_temas,
   titulo    = "Principales razones por las que preferirías estudiar en Chile"
 )
 
@@ -678,6 +685,22 @@ grafico_dona(deg, preferencia_uchile, titulo = "Prefiere un programa que se encu
 "razon_Realicé mi pregrado en la misma universidad",                          
  "razon_Universidad Pública que pudiera articularse además con otras públicas")
 
+ etiquetas_temas <- c("El cuerpo académico",                            
+                     "El prestigio de la Universidad",                                      "Es cercana al Maule en caso de que el programa fuese presencial",
+                     "Impacto en lo público",                                 "La posibilidad de estudiar con becas",                                 
+ "Las bases políticas-ideológicas de la universidad",                    
+ "Me conviene por mi trabajo actual",                                   
+ "Me gusta la experiencia y trayectoria de sus profesoras",              
+ "Me gustaría seguir estudiando en la misma u",                          
+ "Me interesa seguir conectada con Chile",                               
+ "Me interesa trabajar con alguien o equipo de la institución",         
+"Me manejo bien en el idioma en que se dicta",                         
+ "Me permite estar cerca de mi familia o red de apoyo",                 
+ "Me resulta más accesible económicamente",                             
+"Por la línea de investigación y enfoque que presenta la Universidad",  
+ "Porque egresé de la institución",                                      
+"Realicé mi pregrado en la misma universidad",                          
+ "Universidad Pública que pudiera articularse además con otras públicas")
 
 ```
 
@@ -690,7 +713,7 @@ grafico_dona(deg, preferencia_uchile, titulo = "Prefiere un programa que se encu
 grafico_barras_multirespuesta(
   datos_dummies,                    # el data frame que salió de recodificar_multirespuesta.R
   columnas  = columnas_temas,
- # etiquetas = etiquetas_temas,
+  etiquetas = etiquetas_temas,
   titulo    = "Principales razones por las que preferirías estudiar en la Universidad de Chile"
 )
 

@@ -810,8 +810,20 @@ d1 <- d1 %>%
                  "Doctorado en Historia y Arqueología") ~
         "Historia y Arqueología",
       str_detect(programa_ne,
+                 "Doctorado en Geografía Humana en la Unviersidad Autónoma de Barcelona") ~
+        "Geografía Humana",
+      str_detect(programa_ne,
+                 "Doctorado en comunicación") ~
+        "Comunicación",
+        str_detect(programa_ne,
                  "Sciences Hummaines Appliqueés") ~
         "Sciences Hummaines Appliqueés",
+      str_detect(programa_ne,
+                 "Doctorado en Psicología Social") ~
+        "Psicología Social",
+      str_detect(programa_ne,
+                 "Doctorado en Sociologia") ~
+        "Sociología",
       str_detect(programa_ne,
                  "Programa Interdisciplinario en Ciencias Humanas - Universidad Federal de Santa Catarina") ~
         "Ciencias Humanas"
@@ -852,35 +864,45 @@ d2 <- d2 %>%
       is.na(programa_ne) ~ NA_character_,
       
       str_detect(programa_ne,
-                 "Antropología social y magister en ciencias sociales|Magister en Ciencias  Sociales|Magíster en Ciencias Sociales con mención en Sociología de la Modernización") ~
+                 "Antropología social y magister en ciencias sociales|Magister en Ciencias  Sociales|Magíster en Ciencias Sociales con mención en Sociología de la Modernización|Magister en Ciencias Sociales mención Sociología de la Modernización- U de Chile FACSO") ~
         "Ciencias Sociales",
       str_detect(programa_ne,
                  "Antropología y Desarrollo") ~
         "Antropología y Desarrollo",
       
       str_detect(programa_ne,
-                 "Estudios de género y cultura, mención ciencias sociales|Estudios de genero y cultura mencion cs sociales|Magíster en estudios de género y cultura con mención en ciencias sociales|magister en estudios de género y cultura mencion ciencias sociales|Magíster en Estudios de Género y Cultura, mención ciencias sociales") ~
-        "Estudios de Género y cultura, mención Ciencias Sociales",
+                 "Estudios de Género y Cultura mención Ciencias Sociales de FACSO|Estudios de genero y cultura mencion cs sociales|Estudios de género y cultura, mención ciencias sociales|Estudios de género y cultura, mención humanidades|Magíster en estudios de género y cultura con mención en ciencias sociales|magister en estudios de género y cultura mencion ciencias sociales|Magíster en Estudios de Género y Cultura, mención ciencias sociales|Magister en Estudios de Género y Cultura, mención en Ciencias Sociales|Magíster en Estudios de Género y Cultura, mención en Humanidades|Magister en estudios de Genero y Cultura, mención humanidades|Magíster en estudios de género y cultura, mención humanidades|Magíster en Género y Cultura|Magister en Género y Cultura, mención Humanidades en la Facultad de Filosofía y Humanidades") ~
+        "Estudios de Género y cultura",
       
-      str_detect(programa_ne,
-                "Estudios de género y cultura, mención humanidades|Magíster en Estudios de Género y Cultura, mención en Humanidades|Magister en Género y Cultura, mención Humanidades en la Facultad de Filosofía y Humanidades") ~
-       "Estudios de Género y Cultura, mención en Humanidades",
+str_detect(programa_ne,
+                 "Gerencia para el Desarrollo") ~
+        "Gerencia para el Desarrollo",
       
+str_detect(programa_ne,
+                 "Gestión pública") ~
+        "Gestión pública",
       str_detect(programa_ne,
                  "Liderazgo y gestión educativa") ~
         "Liderazgo y gestión educativa ",
       
-      
       str_detect(programa_ne,
-                 "Gestión pública") ~
-        "Gestión pública ",
-      
+                 "MA in Social Policy for Development, with an specialization in Women and Gender Studies") ~
+        "Social Policy for Development",
+       str_detect(programa_ne,
+                 "Magíster el Políticas Públicas y Procesos Socioterritoriales") ~
+        "Políticas Públicas y Procesos Socioterritoriales",
       str_detect(programa_ne,
                  "Magíster en Comunicación UDP") ~
         "Comunicación ",
+ str_detect(programa_ne,
+                 "Magister en clínica adultos|Magister en Psicología Clínica|Magister en psicología clínica adultos enfoque sistémico relacionado universidad de chile") ~
+        "Psicología Clínica",
       str_detect(programa_ne,
-                 "Magister en didáctica de las ciencias experimentales") ~
-        "Didáctica de las Ciencias Experimentales ",
+                 "Magister en didáctica de las ciencias experimentales|Profesora de Biología y Ciencias, Magister en Didáctica de las Ciencias Experimentales") ~
+        "Didáctica de las Ciencias Experimentales",
+str_detect(programa_ne,
+                 "Magister en educación|Magíster en educación mención estudios curriculares, PUC") ~
+        "Educación",
       
       str_detect(programa_ne,
                  "Magister en estudios de género e intervención psicosocial") ~
@@ -889,11 +911,11 @@ d2 <- d2 %>%
                  "Magíster en Estudios y Políticas de Género") ~
         "Estudios y Políticas de Género  ",
       str_detect(programa_ne,
-                 "Magister en Genero e Intervención Social") ~
+                 "Magister en Genero e Intervención Social|Magíster en Género e Intervención Social|MAGISTER GÉNERO E INTERVENCIÓN SOCIAL") ~
         "Genero e Intervención Social ",
       str_detect(programa_ne,
-                 "Magíster en Género y Cultura") ~
-        "Género y Cultura ",
+                 "Magíster en Estudios de Género") ~
+        "Estudios de Género",
       str_detect(programa_ne,
                  "Magister en Igualdad y Violencia de Género") ~
         "Igualdad y Violencia de Género",
@@ -901,17 +923,12 @@ d2 <- d2 %>%
                  "Magister en Lingüística") ~
         "Lingüística",
       str_detect(programa_ne,
-                 "Magister en politica y gobierno") ~
+                 "Magister en politica y gobierno|Magister en Politica y Gobierno|Magister en Políticas Públicas y Gobierno") ~
         "Política y Gobierno",
-      str_detect(programa_ne,
-                 "Magister en Políticas Públicas y Gobierno") ~
-        "Políticas Públicas y Gobierno ",
+
       str_detect(programa_ne,
                  "Magister en Práxis Comunitaria y Pensamiento Sociopolítico") ~
         "Práxis Comunitaria y Pensamiento Sociopolítico ",
-      str_detect(programa_ne,
-                 "Magister en Psicología Clínica|Magister en psicología clínica adultos enfoque sistémico relacionado universidad de chile") ~
-        "Psicología Clínica  ",
       str_detect(programa_ne,
                  "Magíster en Psicología con Mención en Psicología Comunitaria") ~
         "Psicología con Mención en Psicología Comunitaria ",
@@ -926,7 +943,16 @@ d2 <- d2 %>%
         "Políticas Sociales, Trabajo y Bienestar",
       str_detect(programa_ne,
                  "Relaciones Internacionales") ~
-        "Relaciones Internacionales  "
+        "Relaciones Internacionales  ",
+str_detect(programa_ne,
+                 "Master en Musicoterapia") ~
+        "Musicoterapia",
+str_detect(programa_ne,
+                 "Magister en Historia del Tiempo Presente - Univerisidad Austral de Chile / Magíster en Gestión Pedagógica-Curricular y Proyectos Educativos - Universidad Andrés Bello") ~
+        "Historia del Tiempo Presente y Gestión Pedagógica-Curricular y Proyectos Educativos",
+str_detect(programa_ne,
+                 "Master in Gender, Women and Sexuality Studies") ~
+        "Gender, Women and Sexuality Studies"
     )
   )
 ```
@@ -956,6 +982,8 @@ d3 <- d3 %>%
       
       is.na(programa_ne) ~ NA_character_,
       
+        str_detect(programa_ne,
+                 "Diplomado en violencia y género|Diplomado Psicooncología Clínica UChile|Diplomados y titulada universitaria|Magíster en Sociología de la Universidad Alberto Hurtado|Mantenimiento de Aeronaves Fach.") ~ NA_character_,
       str_detect(programa_ne,
                  "Antropología social|Carrera de Antropología Social") ~
         "Antropología social ",
@@ -963,28 +991,36 @@ d3 <- d3 %>%
       str_detect(programa_ne,
                  "Ciencia política") ~
         "Ciencia política ",
-      
+       str_detect(programa_ne,
+                 "Lic en Ciencias Química") ~
+        "Ciencias Química",
+      str_detect(programa_ne,
+                 "Licenciatura en Ciencias de la Educación") ~
+        "Ciencias de la Educación",
+       str_detect(programa_ne,
+                 "Ingeniería en matemáticas y pedagogía para profesionales") ~
+        "Ingeniería en matemáticas y pedagogía para profesionales",
+      str_detect(programa_ne,
+                 "Educación Parvularia y Básica Inicial|Educadora de párvulos") ~
+        "Educación Parvularia",
       
       str_detect(programa_ne,
-                 "Educadora de párvulos") ~
-        "Educadora de párvulos",
-      
-      str_detect(programa_ne,
-                 "Licenciatura cs juridicas y sociales|Licenciatura en ciencias jurídicas y sociales (titulada en derecho)") ~
+                 "Abogada|Licenciatura en ciencias jurídicas y sociales (titulada en derecho)|Licenciatura cs juridicas y sociales") ~
         "Ciencias Jurídicas y Sociales",
       str_detect(programa_ne,
                  "Licenciatura en Artes Visuales con Mención en Artes Visuales") ~
         "Artes Visuales",
       
       str_detect(programa_ne,
-                 "Licenciatura en Historia y Pedagogía en Historia y Ciencias Sociales") ~
-        "Historia y Pedagogía en Historia y Ciencias Sociales ",
+                 "Licenciatura en Historia y Pedagogía en Historia y Ciencias Sociales|Pedagogía en historia y Ciencias Sociales  y Diplomado Interdisciplinario en Prevención y Abordaje de la Violencia de Género en Espacios Laborales y Académicos") ~
+        "Pedagogía en Historia y Ciencias Sociales ",
+      
       str_detect(programa_ne,
-                 "Periodismo") ~
-        "Periodismo",
-      str_detect(programa_ne,
-                 "Psicología") ~
+                 "Licenciado en psicología|Psicologia|Psicología") ~
         "Psicología",
+      str_detect(programa_ne,
+                 "Periodismo|Periodismo, licenciatura en Comunicación Social. Actualmente en proceso de tesis del Magíster en Comunicación Política") ~
+        "Periodismo",
       str_detect(programa_ne,
                  "Sociología") ~
         "Sociología",
@@ -992,7 +1028,7 @@ d3 <- d3 %>%
                  "Técnico en Bibliotecología y Centros de Información") ~
         "Bibliotecología y Centros de Información",
       str_detect(programa_ne,
-                 "Trabajo social") ~
+                 "Trabajo social|Trabajo Social") ~
         "Trabajo social"
     )
   )

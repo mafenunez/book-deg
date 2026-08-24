@@ -514,9 +514,8 @@ pacman::p_load(dplyr, sjPlot, stargazer, kableExtra, texreg, haven, sjlabelled, 
 graf1 <- ggarrange(
   p1, 
   p2,
-  p3,
   common.legend = TRUE, 
-  ncol = 3, 
+  ncol = 2, 
   legend = "bottom")
 
 
@@ -535,17 +534,36 @@ pacman::p_load(dplyr, sjPlot, stargazer, kableExtra, texreg, haven, sjlabelled, 
 
 # Combinar los gráficos
 graf2 <- ggarrange(
-  p4, 
-  p5,
-  p6,
+  p3, 
+  p4,
   common.legend = TRUE, 
-  ncol = 3, 
+  ncol = 2, 
   legend = "bottom")
 
 
 graf2
 ```
 
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: aspectos-posgrado-3
+pacman::p_load(dplyr, sjPlot, stargazer, kableExtra, texreg, haven, sjlabelled, ggplot2, summarytools, ggtext, ggpubr, hrbrthemes, tidyr, stringr)
+
+# grafico esfuerzo en la sociedad
+
+# Combinar los gráficos
+graf3 <- ggarrange(
+  p5, 
+  p6,
+  common.legend = TRUE, 
+  ncol = 2, 
+  legend = "bottom")
+
+
+graf3
+```
 
 ## Localidad del programa 
 ```{r}

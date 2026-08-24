@@ -602,6 +602,14 @@ grafico_barras_uni(deg, motivaciones_deg, titulo = "Pensando en tus propias moti
 #| message: false
 #| label: malla-cuanti
 
+
+deg$malla_cuanti <- car::recode(deg$malla_cuanti,
+                                            recodes = c("
+                                                       'No sé' = NA;
+                                                       'Prefiero no responder' = NA"),
+                                 as.factor = TRUE,
+                                 levels = c("Mucho","Bastante","Algo","Poco"))
+
 p1 <- grafico_dona(deg,  malla_cuanti, titulo = "Metodologías cuantitativas", #subtitulo = "En qué medida (en una escala de 1 a 5) esperas que la malla del programa privilegie cada uno de los siguientes elementos en sus cursos",
                         orden = c( "Mucho","Bastante","Algo","Poco"), mostrar_n = TRUE)
 
@@ -614,6 +622,13 @@ p1 <- grafico_dona(deg,  malla_cuanti, titulo = "Metodologías cuantitativas", #
 #| message: false
 #| label: malla-cuali
 
+deg$malla_cuali <- car::recode(deg$malla_cuali,
+                                            recodes = c("
+                                                       'No sé' = NA;
+                                                       'Prefiero no responder' = NA"),
+                                 as.factor = TRUE,
+                                 levels = c("Mucho","Bastante","Algo","Poco"))
+
 p2 <- grafico_dona(deg,  malla_cuali, titulo = "Metodologías cualitativas", #subtitulo = "",
                         orden = c( "Mucho","Bastante","Algo","Poco"), mostrar_n = TRUE)
 
@@ -625,6 +640,13 @@ p2 <- grafico_dona(deg,  malla_cuali, titulo = "Metodologías cualitativas", #su
 #| message: false
 #| label: malla-teoria
 
+
+deg$malla_teoria <- car::recode(deg$malla_teoria,
+                                            recodes = c("
+                                                       'No sé' = NA;
+                                                       'Prefiero no responder' = NA"),
+                                 as.factor = TRUE,
+                                 levels = c("Mucho","Bastante","Algo","Poco"))
 p3 <- grafico_dona(deg,  malla_teoria, titulo = "Perspectivas teóricas de género
 ", #subtitulo = "En qué medida (en una escala de 1 a 5) esperas que la malla del programa privilegie cada uno de los siguientes elementos en sus cursos",
                         orden = c( "Mucho","Bastante","Algo","Poco"), mostrar_n = TRUE)
@@ -637,6 +659,13 @@ p3 <- grafico_dona(deg,  malla_teoria, titulo = "Perspectivas teóricas de géne
 #| warning: false
 #| message: false
 #| label: malla-pp
+
+deg$malla_pp <- car::recode(deg$malla_pp,
+                                            recodes = c("
+                                                       'No sé' = NA;
+                                                       'Prefiero no responder' = NA"),
+                                 as.factor = TRUE,
+                                 levels = c("Mucho","Bastante","Algo","Poco"))
 
 p4 <- grafico_dona(deg,  malla_pp, titulo = "Herramientas para la política pública", #subtitulo = "En qué medida (en una escala de 1 a 5) esperas que la malla del programa privilegie cada uno de los siguientes elementos en sus cursos",
                         orden = c( "Mucho","Bastante","Algo","Poco"), mostrar_n = TRUE)

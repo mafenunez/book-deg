@@ -1086,9 +1086,9 @@ deg$satisfaccion_ne <- car::recode(deg$satisfaccion_ne,
 #| fig-height: !expr altura_barras(d3, programa_licienciatura)
 #| label: satisfaccion-ne
 
+grafico_dona(deg,  satisfaccion_ne, titulo = "Satisfacción con elnivel educacional actual", subtitulo = "Personas interesadas en estudiar un Posgrado",
+                        orden = c("Muy satisfecho(a)","Satisfecho(a)", "Ni satisfecho(a) ni insatisfecho(a)","Insatisfecho(a)",  "Muy insatisfecho(a)"), mostrar_n = TRUE)
 
-grafico_barras_uni(deg, satisfaccion_ne, titulo = "Satisfacción con elnivel educacional actual", subtitulo = "Personas interesadas en estudiar un Posgrado",
-                         ancho_etiqueta = 30, mostrar_pct = TRUE)
 ```
 
 ## Ocupación 
@@ -1181,7 +1181,9 @@ deg$satisfaccion_ocupacion <- car::recode(deg$satisfaccion_ocupacion,
 #| fig-height: !expr altura_barras(d3, programa_licienciatura)
 #| label: satisfaccion-ocupaciom
 
+grafico_dona(deg,  satisfaccion_ocupacion, titulo = "Satisfacción con el trabajo actual", subtitulo = "Personas interesadas en estudiar un Posgrado",
+                        orden = c("Muy satisfecho(a)","Satisfecho(a)", "Ni satisfecho(a) ni insatisfecho(a)","Insatisfecho(a)",  "Muy insatisfecho(a)"), mostrar_n = TRUE)
 
-grafico_barras_uni(deg, satisfaccion_ocupacion, titulo = "Satisfacción con el trabajo actual", subtitulo = "Personas interesadas en estudiar un Posgrado",
-                         ancho_etiqueta = 30, mostrar_pct = TRUE)
+
 ```
+

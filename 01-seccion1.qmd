@@ -16,7 +16,7 @@ Descripción sociodemográfica de personas que les interesa estudiar un posgrado
 #| warning: false
 #| message: false
 
-pacman::p_load(readr, dplyr, tidyverse, kableExtra, ggplot2, scales, sjPlot, stargazer, texreg, haven, sjlabelled, ggplot2, summarytools, ggtext, ggpubr, hrbrthemes, tidyr, stringr)
+pacman::p_load(readr, dplyr, tidyverse, kableExtra, ggplot2, scales, sjPlot, stargazer, texreg, haven, sjlabelled, ggplot2, summarytools, ggtext, ggpubr, hrbrthemes, tidyr, stringr, DT)
 
 deg <- read_csv("Cuestionario Estudio de Demanda Doctorado en Estudios de Género.csv")
 
@@ -428,6 +428,56 @@ grafico_barras_multirespuesta <- function(datos, columnas, etiquetas = NULL,
       legend.position = "none"
     )
 }
+
+# ---- 4f. Tabla interactiva — frecuencias y porcentajes de una categórica -----
+# Pensada para bloques de programa cursado (Doctorado / Magíster / Pregrado),
+# pero sirve para cualquier variable categórica que se quiera presentar como
+# tabla en vez de gráfico. En HTML se renderiza como tabla DT (buscable y
+# paginada); en PDF cae a una tabla estática con kableExtra, ya que DT
+# depende de HTML/JS y no funciona en ese formato.
+tabla_frecuencias_interactiva <- function(datos, variable, colname = "Categoría",
+                                          pageLength = 10) {
+
+  var <- rlang::ensym(variable)
+
+  tabla <- datos %>%
+    filter(!is.na(!!var)) %>%
+    count(categoria = as.character(!!var), name = "n") %>%
+    mutate(porcentaje = n / sum(n)) %>%
+    arrange(desc(n)) %>%
+    transmute(
+      !!colname := categoria,
+      Frecuencia = n,
+      Porcentaje = percent(porcentaje, accuracy = 0.1)
+    )
+
+  if (knitr::is_html_output()) {
+
+    DT::datatable(
+      tabla,
+      rownames = FALSE,
+      options = list(
+        pageLength = pageLength,
+        autoWidth = TRUE,
+        dom = 'ftip',
+        language = list(
+          search = "Buscar:",
+          info = "Mostrando _START_ a _END_ de _TOTAL_",
+          paginate = list(previous = "Anterior", `next` = "Siguiente"),
+          zeroRecords = "Sin resultados"
+        )
+      )
+    )
+
+  } else {
+
+    tabla %>%
+      kbl(booktabs = TRUE, longtable = TRUE) %>%
+      kable_styling(latex_options = c("striped", "repeat_header"),
+                    full_width = TRUE)
+
+  }
+}
 ```
 
 ## Edad
@@ -770,16 +820,19 @@ d1 <- d1 %>%
 
 ```
 
-### Doctorado
+### Programa cursado
+
+::: {.panel-tabset}
+
+#### Doctorado
+
 ```{r}
 #| echo: false
 #| warning: false
 #| message: false
-#| fig-height: !expr altura_barras(d1, programa_doctorado)
 #| label: doctorado
 
-grafico_barras_uni(d1, programa_doctorado, titulo = "Programa cursado: Doctorado", subtitulo = "Personas interesadas en estudiar un Posgrado",
-                         ancho_etiqueta = 30, mostrar_pct = TRUE)
+tabla_frecuencias_interactiva(d1, programa_doctorado, colname = "Programa cursado")
 
 ```
 
@@ -878,16 +931,15 @@ d2 <- d2 %>%
   )
 ```
 
-### Magíster
+#### Magíster
+
 ```{r}
 #| echo: false
 #| warning: false
 #| message: false
-#| fig-height: !expr altura_barras(d2, programa_magister)
 #| label: magister
 
-grafico_barras_uni(d2, programa_magister, titulo = "Programa cursado: Magíster", subtitulo = "Personas interesadas en estudiar un Posgrado",
-                         ancho_etiqueta = 35, mostrar_pct = TRUE)
+tabla_frecuencias_interactiva(d2, programa_magister, colname = "Programa cursado")
 ```
 
 
@@ -947,20 +999,20 @@ d3 <- d3 %>%
 
 ```
 
-### Pregrado
+#### Pregrado
+
 ```{r}
 #| echo: false
 #| warning: false
 #| message: false
-#| fig-height: !expr altura_barras(d3, programa_licienciatura)
 #| label: pregrado
 
-
-grafico_barras_uni(d3, programa_licienciatura, titulo = "Programa cursado: Licenciado(a) / Titulado(a)", subtitulo = "Personas interesadas en estudiar un Posgrado",
-                         ancho_etiqueta = 30, mostrar_pct = TRUE)
+tabla_frecuencias_interactiva(d3, programa_licienciatura, colname = "Programa cursado")
 ```
 
-### Año de egreso 
+:::
+
+### Año de egreso
 ```{r}
 #| echo: false
 #| warning: false

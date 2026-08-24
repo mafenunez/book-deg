@@ -433,7 +433,7 @@ grafico_barras_multirespuesta <- function(datos, columnas, etiquetas = NULL,
 #| label: prestigio-u-posgrado
 
 
-grafico_dona(deg,  aspectos_pos_g_universidad, titulo = "Prestigio de la universidad", subtitulo = "En qué medida consideras que son importantes los siguientes aspectos",
+p1 <- grafico_dona(deg,  aspectos_pos_g_universidad, titulo = "Prestigio de la universidad", #subtitulo = "En qué medida consideras que son importantes los siguientes aspectos",
                          orden = c( "Mucho","Bastante","Algo","Poco"), mostrar_n = TRUE)
 
 ```
@@ -444,7 +444,7 @@ grafico_dona(deg,  aspectos_pos_g_universidad, titulo = "Prestigio de la univers
 #| message: false
 #| label: prestigio-academico-posgrado
 
-grafico_dona(deg,  aspectos_pos_g_cuerpo_academico, titulo = "Prestigio del Cuerpo Académico del Programa", subtitulo = "En qué medida consideras que son importantes los siguientes aspectos",
+p2 <- grafico_dona(deg,  aspectos_pos_g_cuerpo_academico, titulo = "Prestigio del Cuerpo Académico del Programa", #subtitulo = "En qué medida consideras que son importantes los siguientes aspectos",
                         orden = c( "Mucho","Bastante","Algo","Poco"), mostrar_n = TRUE)
 
 ```
@@ -456,7 +456,7 @@ grafico_dona(deg,  aspectos_pos_g_cuerpo_academico, titulo = "Prestigio del Cuer
 #| label: malla-posgrado
 
 
-grafico_dona(deg,  aspectos_pos_g_malla, titulo = "La malla del Programa", subtitulo = "En qué medida consideras que son importantes los siguientes aspectos",
+p3 <- grafico_dona(deg,  aspectos_pos_g_malla, titulo = "La malla del Programa", #subtitulo = "En qué medida consideras que son importantes los siguientes aspectos",
                         orden = c( "Mucho","Bastante","Algo","Poco"), mostrar_n = TRUE)
 
 
@@ -469,7 +469,7 @@ grafico_dona(deg,  aspectos_pos_g_malla, titulo = "La malla del Programa", subti
 #| label: costo-posgrado
 
 
-grafico_dona(deg,  aspectos_pos_g_costo, titulo = "Costo del Programa", subtitulo = "En qué medida consideras que son importantes los siguientes aspectos",
+p4 <- grafico_dona(deg,  aspectos_pos_g_costo, titulo = "Costo del Programa", #subtitulo = "En qué medida consideras que son importantes los siguientes aspectos",
                         orden = c( "Mucho","Bastante","Algo","Poco"), mostrar_n = TRUE)
 
 ```
@@ -481,7 +481,7 @@ grafico_dona(deg,  aspectos_pos_g_costo, titulo = "Costo del Programa", subtitul
 #| label: becas-posgrado
 
 
-grafico_dona(deg,  aspectos_pos_g_becas, titulo = "Existencia de becas", subtitulo = "En qué medida consideras que son importantes los siguientes aspectos",
+p5 <- grafico_dona(deg,  aspectos_pos_g_becas, titulo = "Existencia de becas", #subtitulo = "En qué medida consideras que son importantes los siguientes aspectos",
                         orden = c( "Mucho","Bastante","Algo","Poco"), mostrar_n = TRUE)
 
 
@@ -494,9 +494,56 @@ grafico_dona(deg,  aspectos_pos_g_becas, titulo = "Existencia de becas", subtitu
 #| label: colab-posgrado
 
 
-grafico_dona(deg,  aspectos_pos_g_colab_inter, titulo = "Existencia de colaboraciones interdisciplinarias", subtitulo = "En qué medida consideras que son importantes los siguientes aspectos",
+p6 <- grafico_dona(deg,  aspectos_pos_g_colab_inter, titulo = "Existencia de colaboraciones interdisciplinarias", #subtitulo = "En qué medida consideras que son importantes los siguientes aspectos",
                         orden = c( "Mucho","Bastante","Algo","Poco"), mostrar_n = TRUE)
 
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: aspectos-posgrado-1
+
+pacman::p_load(dplyr, sjPlot, stargazer, kableExtra, texreg, haven, sjlabelled, ggplot2, summarytools, ggtext, ggpubr, hrbrthemes, tidyr, stringr)
+
+# grafico esfuerzo en la sociedad
+
+# Combinar los gráficos
+graf1 <- ggarrange(
+  p1, 
+  p2,
+  p3,
+  common.legend = TRUE, 
+  ncol = 3, 
+  legend = "bottom")
+
+
+graf1
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: aspectos-posgrado-2
+pacman::p_load(dplyr, sjPlot, stargazer, kableExtra, texreg, haven, sjlabelled, ggplot2, summarytools, ggtext, ggpubr, hrbrthemes, tidyr, stringr)
+
+# grafico esfuerzo en la sociedad
+
+# Combinar los gráficos
+graf2 <- ggarrange(
+  p4, 
+  p5,
+  p6,
+  common.legend = TRUE, 
+  ncol = 3, 
+  legend = "bottom")
+
+
+graf2
 ```
 
 

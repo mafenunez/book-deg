@@ -422,6 +422,69 @@ grafico_barras_multirespuesta <- function(datos, columnas, etiquetas = NULL,
       legend.position = "none"
     )
 }
+
+# ---- 4f. Tabla interactiva — pregunta de selección múltiple (varias columnas 0/1) ----
+# Misma lógica de conteo que grafico_barras_multirespuesta(), pero como tabla
+# DT (buscable y paginada) en vez de gráfico. En PDF cae a una tabla estática
+# con kableExtra, ya que DT depende de HTML/JS.
+tabla_frecuencias_multirespuesta_interactiva <- function(datos, columnas, etiquetas = NULL,
+                                                          colname = "Categoría",
+                                                          pageLength = 10) {
+
+  n_total <- nrow(datos)
+
+  tabla <- datos %>%
+    select(all_of(columnas)) %>%
+    summarise(across(everything(), ~ sum(.x, na.rm = TRUE))) %>%
+    pivot_longer(everything(), names_to = "columna", values_to = "n")
+
+  if (!is.null(etiquetas)) {
+    mapa_etiquetas <- setNames(etiquetas, columnas)
+    tabla <- tabla %>% mutate(nombre_categoria = unname(mapa_etiquetas[columna]))
+  } else {
+    tabla <- tabla %>% mutate(nombre_categoria = columna)
+  }
+
+  tabla <- tabla %>%
+    mutate(porcentaje = n / n_total) %>%
+    arrange(desc(n)) %>%
+    transmute(
+      !!colname := nombre_categoria,
+      Frecuencia = n,
+      Porcentaje = percent(porcentaje, accuracy = 0.1)
+    )
+
+  nota <- sprintf(paste("n = %d encuestadas/os · pregunta de selección múltiple,",
+                        "los porcentajes no suman 100%%"), n_total)
+
+  if (knitr::is_html_output()) {
+
+    DT::datatable(
+      tabla,
+      rownames = FALSE,
+      caption = nota,
+      options = list(
+        pageLength = pageLength,
+        autoWidth = TRUE,
+        dom = 'ftip',
+        language = list(
+          search = "Buscar:",
+          info = "Mostrando _START_ a _END_ de _TOTAL_",
+          paginate = list(previous = "Anterior", `next` = "Siguiente"),
+          zeroRecords = "Sin resultados"
+        )
+      )
+    )
+
+  } else {
+
+    tabla %>%
+      kbl(booktabs = TRUE, longtable = TRUE, caption = nota) %>%
+      kable_styling(latex_options = c("striped", "repeat_header"),
+                    full_width = TRUE)
+
+  }
+}
 ```
 
 ## Aspectos importantes para seleccionar un porgrama de Doctorado en Estudios de Género
@@ -539,7 +602,7 @@ grafico_barras_uni(deg, motivaciones_deg, titulo = "Pensando en tus propias moti
 #| message: false
 #| label: malla-cuanti
 
-grafico_dona(deg,  malla_cuanti, titulo = "Metodologías cuantitativas", subtitulo = "En qué medida (en una escala de 1 a 5) esperas que la malla del programa privilegie cada uno de los siguientes elementos en sus cursos",
+p1 <- grafico_dona(deg,  malla_cuanti, titulo = "Metodologías cuantitativas", #subtitulo = "En qué medida (en una escala de 1 a 5) esperas que la malla del programa privilegie cada uno de los siguientes elementos en sus cursos",
                         orden = c( "Mucho","Bastante","Algo","Poco"), mostrar_n = TRUE)
 
 ```
@@ -551,7 +614,7 @@ grafico_dona(deg,  malla_cuanti, titulo = "Metodologías cuantitativas", subtitu
 #| message: false
 #| label: malla-cuali
 
-grafico_dona(deg,  malla_cuali, titulo = "Metodologías cualitativas", subtitulo = "En qué medida (en una escala de 1 a 5) esperas que la malla del programa privilegie cada uno de los siguientes elementos en sus cursos",
+p2 <- grafico_dona(deg,  malla_cuali, titulo = "Metodologías cualitativas", #subtitulo = "",
                         orden = c( "Mucho","Bastante","Algo","Poco"), mostrar_n = TRUE)
 
 ```
@@ -562,8 +625,8 @@ grafico_dona(deg,  malla_cuali, titulo = "Metodologías cualitativas", subtitulo
 #| message: false
 #| label: malla-teoria
 
-grafico_dona(deg,  malla_teoria, titulo = "Perspectivas teóricas de género
-", subtitulo = "En qué medida (en una escala de 1 a 5) esperas que la malla del programa privilegie cada uno de los siguientes elementos en sus cursos",
+p3 <- grafico_dona(deg,  malla_teoria, titulo = "Perspectivas teóricas de género
+", #subtitulo = "En qué medida (en una escala de 1 a 5) esperas que la malla del programa privilegie cada uno de los siguientes elementos en sus cursos",
                         orden = c( "Mucho","Bastante","Algo","Poco"), mostrar_n = TRUE)
 
 ```
@@ -575,9 +638,54 @@ grafico_dona(deg,  malla_teoria, titulo = "Perspectivas teóricas de género
 #| message: false
 #| label: malla-pp
 
-grafico_dona(deg,  malla_pp, titulo = "Herramientas para la política pública", subtitulo = "En qué medida (en una escala de 1 a 5) esperas que la malla del programa privilegie cada uno de los siguientes elementos en sus cursos",
+p4 <- grafico_dona(deg,  malla_pp, titulo = "Herramientas para la política pública", #subtitulo = "En qué medida (en una escala de 1 a 5) esperas que la malla del programa privilegie cada uno de los siguientes elementos en sus cursos",
                         orden = c( "Mucho","Bastante","Algo","Poco"), mostrar_n = TRUE)
 
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: malla-1
+
+pacman::p_load(dplyr, sjPlot, stargazer, kableExtra, texreg, haven, sjlabelled, ggplot2, summarytools, ggtext, ggpubr, hrbrthemes, tidyr, stringr)
+
+# grafico esfuerzo en la sociedad
+
+# Combinar los gráficos
+graf1 <- ggarrange(
+  p1, 
+  p2,
+  common.legend = TRUE, 
+  ncol = 2, 
+  legend = "bottom")
+
+
+graf1
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: malla-2
+
+pacman::p_load(dplyr, sjPlot, stargazer, kableExtra, texreg, haven, sjlabelled, ggplot2, summarytools, ggtext, ggpubr, hrbrthemes, tidyr, stringr)
+
+# grafico esfuerzo en la sociedad
+
+# Combinar los gráficos
+graf2 <- ggarrange(
+  p3, 
+  p4,
+  common.legend = TRUE, 
+  ncol = 2, 
+  legend = "bottom")
+
+
+graf2
 ```
 
 ## Temáticas que deberían ser abordadas por los cursos 
@@ -709,11 +817,11 @@ etiquetas_temas <- c("Cambios sociales y género",
 #| warning: false
 #| message: false
 #| label: tematicas
-grafico_barras_multirespuesta(
+tabla_frecuencias_multirespuesta_interactiva(
   datos_dummies,                    # el data frame que salió de recodificar_multirespuesta.R
   columnas  = columnas_temas,
   etiquetas = etiquetas_temas,
-  titulo    = "Indica las temáticas que te gustarían fueran abordadas en los cursos por el Doctorado en Estudios de Género"
+  colname   = "Temática"
 )
 
 ```
